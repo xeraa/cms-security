@@ -176,7 +176,7 @@ However, the devil is in the details and we're making the following assumptions:
 |      | SilverStripe  |  1         |  3              |  3 / 4.87 =  0.62       |
 | Sum  | WordPress     |  9         | 21              | 21 / 1.54 = 13.64       |
 |      | Drupal        |  5         | 13              | 13 / 0.53 = 24.53       |
-|      | TYPO3         | 10         | 0               | 29 / 4.36 =  6.65       |
+|      | TYPO3         | 10         | 29              | 29 / 4.36 =  6.65       |
 |      | Joomla        | 45         | 45              | 45 / 2.35 = 19.15       |
 |      | SilverStripe  |  8         | 19              | 19 / 4.87 =  3.90       |
 
