@@ -1,7 +1,7 @@
 # CMS Security Track Record (2010 & 2011)
 
 
-**After making a (probably unwarranted) [remark on TYPO3's security](https://twitter.com/#!/xeraa/status/158250289005207553) on Twitter, [Søren Malling](https://twitter.com/sorenmalling) challenged me to it: "["All" those issues are dated since 2005..  Do some comparising and you will find its nothing!"](https://twitter.com/#!/sorenmalling/status/158325493224062976). So I decided to give it a go and do a little comparison.**
+**After making a (probably unwarranted) [remark on TYPO3's security](https://twitter.com/#!/xeraa/status/158250289005207553) on Twitter and further mentioning the high number of security flaws, [Søren Malling](https://twitter.com/sorenmalling) challenged me to it: "["All" those issues are dated since 2005..  Do some comparising and you will find its nothing!](https://twitter.com/#!/sorenmalling/status/158325493224062976)". So I decided to give it a go and do a little comparison.**
 
 
 ## The Contenders
@@ -13,7 +13,7 @@ I'll include the following projects:
 * [Joomla](http://joomla.org)
 * [SilverStripe](href="http://www.silverstripe.org) -- I might be [a little biased here](https://www.amazon.com/SilverStripe-Module-Extension-Themes-Widgets/dp/184951500X), but I'll try to keep it as fair as possible
 
-Why isn't X included? Ask nicely or even provide some research and I might include it :-).
+Why isn't X included? Ask nicely or even provide some research and I might include it. And of course any corrections or feedback are highly appreciated :-).
 
 
 ## Are They Even Comparable?
@@ -190,7 +190,7 @@ A graphical comparison looks like this:
 * [Drupal](https://drupal.org/security) does this much better, I would even say best. The overview is both compact and contains all the relevant information (affected version, risk assessment, local / remote).
 * [TYPO3's list](http://typo3.org/teams/security/security-bulletins/typo3-core/) isn't bad and the detail pages contain all relevant information. I just didn't understand the numbering schema in 2010: 001 (1 issue) is being followed by 004 (3 issues); next is 008 with 1 issue again.
 * [Joomla](http://developer.joomla.org/security/news.html) has probably too much information on the overview page, but everything of interest is there, so I can't really fault them for that.
-* The [overview page of SilverStripe](http://www.silverstripe.org/security-releases/) is very basic, but the linked detail pages contain a lot of information. A severity rating on the overview page would be nice, though.
+* The [overview page of SilverStripe](http://www.silverstripe.org/security-releases/) is very basic, but the linked detail pages contain a lot of information. A severity rating on the overview page or at least in the details would be nice, though.
 
 ### Interpretation
 
