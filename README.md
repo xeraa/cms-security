@@ -150,35 +150,116 @@ A quantitative comparison should be simple: Count the vulnerabilities and that's
 ### Assumptions
 However, the devil is in the details and we're making the following assumptions:
 
+* What's a sensible time frame to consider? Too long and you're taking long gone code into account, too short and you're not getting the complete picture. Let's settle on the years 2010 and 2011.
 * How do you count vulnerabilities only present in version A (still supported), if a newer version B is already available? If the same vulnerability is present in multiple versions, it's only counted as one. However, all vulnerabilities in supported releases are taken into account, not just the latest stable release.
 * What about issues in release candidates? We're only considering final code.
-* How should "hardening" be counted (I'm looking at you, WordPress)? If it needs hardening, it's counted. If other projects fix those silently: mea culpa.
+* How should "hardening" be counted (I'm looking at you, WordPress)? If it needs hardening, it's counted. If other projects fix those silently: They shouldn't -- if pointed out I'll include such changes.
 * What about features disabled by default? All the core code is counted, disabled or not.
 * Does it make a difference if a flaw is being fixed a single time or in multiple places with one update? If it's the same defect it's only counted a single time, even if it occurs multiple times.
-* What's a sensible time frame to consider? Too long and you're taking long gone code into account, too short and you're not getting the complete picture. Let's settle on the years 2010 and 2011.
 * What about modules, especially with Drupal? While the security of a CMS also depends on its modules, it's impossible to make a comparable selection. Should we try to achieve the same functionality across all systems, should we include the most popular X modules for each project,…?
 * Vulnerabilities per hundred thousand lines of code (LOC^5), rounded to thousands: Which lines do you count? HTML or CSS are not or at least less susceptible to security issues, while JavaScript or PHP are far more problematic. For simplicity we'll use the overall lines of code and not try to only count a subset or even weigh them.
+* Neither [Secunia](https://secunia.com/advisories/search/), [NIST](http://web.nvd.nist.gov/view/vuln/search), [ISS](http://webapp.iss.net/Search.do?searchType=vuln&keyword=), [OSVDB](http://osvdb.org/search/advsearch), or [SecurityFocus](http://www.securityfocus.com/bid) seem to list all vulnerabilities (especially for the lesser known SilverStripe). So they can't be used for an overall assessment.
 * Where do we get the list of vulnerabilities from? We're taking the official announcements of each project, specifically: [https://wordpress.org/news/category/security/](https://wordpress.org/news/category/security/), [https://drupal.org/security](https://drupal.org/security), [http://typo3.org/teams/security/security-bulletins/typo3-core/](http://typo3.org/teams/security/security-bulletins/typo3-core/), [http://developer.joomla.org/security/news/](http://developer.joomla.org/security/news/), and [http://www.silverstripe.org/security-releases/](http://www.silverstripe.org/security-releases/)
+
 
 ### Vulnerabilities
 
 | Year | Project       | Advisories | Vulnerabilities | Vulnerability per LOC^5 |
-|------|---------------|------------|-----------------|-------------------------|
-| 2010 | WordPress     |  3         |  4              |  4 / 1.54 =  2.60       |
-|      | Drupal        |  2         |  8              |  8 / 0.53 = 15.09       |
-|      | TYPO3         |  6         | 21              | 21 / 4.36 =  4.82       |
-|      | Joomla        | 10         | 10              | 10 / 2.35 =  4.26       |
-|      | SilverStripe  |  7         | 16              | 16 / 4.87 =  3.29       |
-| 2011 | WordPress     |  6         | 17              | 17 / 1.54 = 11.04       |
-|      | Drupal        |  3         |  5              |  5 / 0.53 =  9.43       |
-|      | TYPO3         |  4         |  8              |  8 / 4.36 =  1.83       |
-|      | Joomla        | 35         | 35              | 35 / 2.35 = 14.89       |
-|      | SilverStripe  |  1         |  3              |  3 / 4.87 =  0.62       |
-| Sum  | WordPress     |  9         | 21              | 21 / 1.54 = 13.64       |
+|------|-------------------|------------|-----------------|-------------------------|
+| 2010 | WordPress (1)     |  3         |  4              |  4 / 1.54 =  2.60       |
+|      | Drupal (2)        |  2         |  8              |  8 / 0.53 = 15.09       |
+|      | TYPO3 (3)         |  6         | 27              | 27 / 4.36 =  6.19       |
+|      | Joomla (4)        | 10         | 10              | 10 / 2.35 =  4.26       |
+|      | SilverStripe (5)  |  7         | 20              | 20 / 4.87 =  4.11       |
+| 2011 | WordPress (6)     |  6         | 19              | 19 / 1.54 = 12.34       |
+|      | Drupal (7)        |  3         |  5              |  5 / 0.53 =  9.43       |
+|      | TYPO3 (8)         |  4         | 15              | 15 / 4.36 =  3.44       |
+|      | Joomla (9)        | 35         | 35              | 35 / 2.35 = 14.89       |
+|      | SilverStripe (10) |  1         |  5              |  5 / 4.87 =  1.03       |
+| Sum  | WordPress         |  9         | 23              | 23 / 1.54 = 14.94       |
 |      | Drupal        |  5         | 13              | 13 / 0.53 = 24.53       |
-|      | TYPO3         | 10         | 29              | 29 / 4.36 =  6.65       |
+|      | TYPO3             | 10         | 42              | 42 / 4.36 =  9.63       |
 |      | Joomla        | 45         | 45              | 45 / 2.35 = 19.15       |
-|      | SilverStripe  |  8         | 19              | 19 / 4.87 =  3.90       |
+|      | SilverStripe      |  8         | 25              | 25 / 4.87 =  5.13       |
+
+Detailed list of advisories and vulnerabilities:
+
+1. [3.0.4](https://wordpress.org/news/2010/12/3-0-4-update/): 1,
+   [3.0.3](https://wordpress.org/news/2010/12/wordpress-3-0-3/): 1,
+   [3.0.2](https://wordpress.org/news/2010/11/wordpress-3-0-2/): 2 ("some additional security enhancements" are counted as one)
+2. [SA-CORE-2010-002](https://drupal.org/node/880476): 4,
+   [SA-CORE-2010-001](https://drupal.org/node/731710): 4
+3. [TYPO3-SA-2010-022](http://typo3.org/teams/security/security-bulletins/typo3-core/typo3-sa-2010-022/): 8 (every vulnerability is being counted, not just the subcomponents -- this is rather misleading),
+   [TYPO3-SA-2010-020](http://typo3.org/teams/security/security-bulletins/typo3-core/typo3-sa-2010-020/): 6,
+   [TYPO3-SA-2010-012](http://typo3.org/teams/security/security-bulletins/typo3-core/typo3-sa-2010-012/): 15,
+   [TYPO3-SA-2010-008](http://typo3.org/teams/security/security-bulletins/typo3-core/typo3-sa-2010-008/): 1,
+   [TYPO3-SA-2010-004](http://typo3.org/teams/security/security-bulletins/typo3-core/typo3-sa-2010-004/): 4,
+   [TYPO3-SA-2010-001](http://typo3.org/teams/security/security-bulletins/typo3-core/typo3-sa-2010-001/): 1
+4. [20101101](http://developer.joomla.org/security/news/323-20101101-core-sqli-info-disclosurevulnerabilities.html),
+   [20101001](http://developer.joomla.org/security/news/322-20101001-core-xss-vulnerabilities.html),
+   [20100704](http://developer.joomla.org/security/news/318-20100704-core-xss-vulnerabillitis-in-back-end.html),
+   [20100703](http://developer.joomla.org/security/news/317-20100703-core-xss-vulnerabillitis-in-back-end.html),
+   [20100702](http://developer.joomla.org/security/news/316-20100702-core-xss-vulnerabillitis-in-back-end.html),
+   [20100701](http://developer.joomla.org/security/news/315-20100701-core-sql-injection-internal-path-exposure.html),
+   [20100501](http://developer.joomla.org/security/news/314-20100501-core-xss-vulnerabilities-in-back-end.html),
+   [20100423](http://developer.joomla.org/security/news/310-20100423-core-installer-migration-script.html),
+   [20100423](http://developer.joomla.org/security/news/309-20100423-core-sessation-fixation.html),
+   [20100423](http://developer.joomla.org/security/news/311-20100423-core-negative-values-for-limit-and-offset.html) (the last three are dates, that's why they are exactly the same)
+5. [2.4.4](http://doc.silverstripe.org/sapphire/en/changelogs/2.4.4): 8,
+   [2.4.3](http://doc.silverstripe.org/sapphire/en/changelogs/2.4.3): 2,
+   [2.4.2](http://doc.silverstripe.org/sapphire/en/changelogs/2.4.2): 2,
+   [2.4.1](http://doc.silverstripe.org/sapphire/en/changelogs/2.4.1): 4,
+   [2.3.7](http://doc.silverstripe.org/sapphire/en/changelogs/2.3.7): 2,
+   [2.3.6](http://doc.silverstripe.org/sapphire/en/changelogs/2.3.6): 1,
+   [2.3.5](http://doc.silverstripe.org/sapphire/en/changelogs/2.3.5): 1
+6. [3.1.4](https://wordpress.org/news/2011/06/wordpress-3-1-4/): 5 (I would count 4 issues in the [changelog](https://core.trac.wordpress.org/log/branches/3.1/?action=stop_on_copy&mode=stop_on_copy&rev=18377&stop_rev=18043)),
+   [3.1.3](https://wordpress.org/news/2011/05/wordpress-3-1-3/): 5,
+   [3.1.2](https://wordpress.org/news/2011/04/wordpress-3-1-2/): 1,
+   [3.1.1](https://wordpress.org/news/2011/04/wordpress-3-1-1/): 3,
+   [3.0.5](https://wordpress.org/news/2011/02/wordpress-3-0-5/): 5
+7. [SA-CORE-2011-003](https://drupal.org/node/1231510): 1,
+   [SA-CORE-2011-002](https://drupal.org/node/1204582): 1,
+   [SA-CORE-2011-001](https://drupal.org/node/1168756): 3
+8. [TYPO3-CORE-SA-2011-004](http://typo3.org/teams/security/security-bulletins/typo3-core/typo3-core-sa-2011-004/): 1,
+   [TYPO3-CORE-SA-2011-003](http://typo3.org/teams/security/security-bulletins/typo3-core/typo3-core-sa-2011-003/): 1,
+   [TYPO3-CORE-SA-2011-002](http://typo3.org/teams/security/security-bulletins/typo3-core/typo3-core-sa-2011-002/): 1,
+   [TYPO3-CORE-SA-2011-001](http://typo3.org/teams/security/security-bulletins/typo3-core/typo3-core-sa-2011-001/): 12
+9. [20111103](http://developer.joomla.org/security/news/375-20111103-core-password-change.html),
+   [20111102](http://developer.joomla.org/security/news/374-20111102-core-password-change.html),
+   [20111101](http://developer.joomla.org/security/news/373-20111101-core-xss-vulnerability.html),
+   [20111003](http://developer.joomla.org/security/news/372-20111003-core-information-disclosure.html),
+   [20111002](http://developer.joomla.org/security/news/371-20111002-core-information-disclosure.html),
+   [20111001](http://developer.joomla.org/security/news/370-20111001-core-information-disclosure.html),
+   [20110903](http://developer.joomla.org/security/news/369-20110903-core-information-disclosure.html),
+   [20110902](http://developer.joomla.org/security/news/368-20110902-core-xss-vulnerability.html),
+   [20110901](http://developer.joomla.org/security/news/367-20110901-core-xss-vulnerability.html),
+   [20110701](http://developer.joomla.org/security/news/357-20110701-xss-vulnerability.html),
+   [20110604](http://developer.joomla.org/security/news/352-20110604-xss-vulnerability.html),
+   [20110603](http://developer.joomla.org/security/news/350-20110603-unauthorised-access.html),
+   [20110602](http://developer.joomla.org/security/news/351-20110602-information-disclosure.html),
+   [20110601](http://developer.joomla.org/security/news/349-20110601-xss-vulnerabilities.html),
+   [20110409](http://developer.joomla.org/security/news/347-20110409-core-clickjacking.html),
+   [20110408](http://developer.joomla.org/security/news/348-20110408-core-sql-injection.html),
+   [20110407](http://developer.joomla.org/security/news/346-20110407-core-unauthorised-access.html),
+   [20110406](http://developer.joomla.org/security/news/345-20110406-core-xss-vulnerabilities.html),
+   [20110405](http://developer.joomla.org/security/news/344-20110405-core-xss-vulnerabilities.html),
+   [20110404](http://developer.joomla.org/security/news/343-20110404-core-xss-vulnerabilities.html),
+   [20110403](http://developer.joomla.org/security/news/342-20110403-core-information-disclosure.html),
+   [20110402](http://developer.joomla.org/security/news/341-20110402-core-information-disclosure.html),
+   [20110401](http://developer.joomla.org/security/news/340-20110401-core-information-disclosure.html),
+   [20110308](http://developer.joomla.org/security/news/339-20110308-core-csrf-vulnerability.html),
+   [20110307](http://developer.joomla.org/security/news/338-20110307-core-xss-vulnerabilities.html),
+   [20110306](http://developer.joomla.org/security/news/337-20110306-core-dos-vulnerabilities.html),
+   [20110305](http://developer.joomla.org/security/news/336-20110305-core-csrf-vulnerability.html),
+   [20110304](http://developer.joomla.org/security/news/335-20110304-core-unauthorised-access.html),
+   [20110303](http://developer.joomla.org/security/news/334-20110303-core-information-disclosure.html),
+   [20110302](http://developer.joomla.org/security/news/333-20110302-core-redirect-vulnerabilities.html),
+   [20110301](http://developer.joomla.org/security/news/332-20110301-core-information-disclosure.html),
+   [20110204](http://developer.joomla.org/security/news/331-20110204-core-xss-vulnerabilities.html),
+   [20110203](http://developer.joomla.org/security/news/330-20110203-core-xss-vulnerabilities.html),
+   [20110202](http://developer.joomla.org/security/news/329-20110202-core-path-disclosure.html),
+   [20110201](http://developer.joomla.org/security/news/328-20110201-core-sql-injection-path-disclosure.html)
+10. [2.4.6](http://doc.silverstripe.org/sapphire/en/trunk/changelogs/2.4.6): 5
 
 A graphical comparison looks like this:
 
