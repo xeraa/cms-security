@@ -267,7 +267,7 @@ A graphical comparison looks like this:
 
 ### A Word on the Announcements
 
-* The [announcements of WordPress](https://wordpress.org/news/category/security/) are awful. First, the page was by far the hardest to locate. Second, the overview is extremely limited -- all other projects are doing this much better. Third, statements like ["Version 3.1.4 also incorporates several other security fixes and hardening measures […]"](https://wordpress.org/news/2011/06/wordpress-3-1-4/) really aren't transparent. The change log is referenced, but I really don't want to look through that to decide how important the update is. Finally, it mixes security vulnerabilities and regular issues making it pretty confusing.
+* The [announcements of WordPress](https://wordpress.org/news/category/security/) are awful. First, the page was (at least for me) the hardest to locate. Second, the overview is extremely limited -- all other projects are doing this much better. Third, statements like "[Version 3.1.4 also incorporates several other security fixes and hardening measures […]](https://wordpress.org/news/2011/06/wordpress-3-1-4/)" really aren't transparent. The change log is referenced, but I really don't want to look through that to decide how important the update is. Finally, it mixes security vulnerabilities and regular issues making it pretty confusing.
 * [Drupal](https://drupal.org/security) does this much better, I would even say best. The overview is both compact and contains all the relevant information (affected version, risk assessment, local / remote).
 * [TYPO3's list](http://typo3.org/teams/security/security-bulletins/typo3-core/) isn't bad and the detail pages contain all relevant information. I just didn't understand the numbering schema in 2010: 001 (1 issue) is being followed by 004 (3 issues); next is 008 with 1 issue again.
 * [Joomla](http://developer.joomla.org/security/news.html) has probably too much information on the overview page, but everything of interest is there, so I can't really fault them for that.
@@ -275,11 +275,12 @@ A graphical comparison looks like this:
 
 ### Interpretation
 
-* Joomla had the most vulnerabilities, more than 50% more than TYPO3.
+* Joomla had the most vulnerabilities, but TYPO3 followed closely.
 * Drupal had the least vulnerabilities in the given period, but also had the highest number of vulnerabilities per LOC -- which is kind of counter intuitive.
-* SilverStripe has had the least security issues per LOC and also the overall count is pretty low.
+* SilverStripe has had the least security issues per LOC, but nearly double the issues compared to Drupal.
 * While TYPO3 and SilverStripe had significantly more security flaws in 2010 than in 2011, it's just the other way around for WordPress and Joomla. However, I wouldn't be so bold as to suggest the code base of the former ones has matured and will be (more) secure in the future. Taking a look at only two sample years, doesn't give an indication of development.
 * While Joomla is still supporting 1.5, 1.6 has been replaced by 1.7 so they have only been supporting two versions at the same time (like most other projects). This is important as we don't want to punish projects for providing more support than others.
+* TYPO3 supports three versions (stable, old stable, and deprecated). However, if I'm not mistaken, all security issues in the last two years have been part of the two latest releases (and sometimes older versions as well). Hence, the extended support policy hasn't been a disadvantage.
 
 
 ## Qualitative Comparison
