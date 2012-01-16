@@ -135,9 +135,7 @@ Good question! Probably, you can't compare TYPO3 to Wordpress for example -- bot
 ### Quick Comparison
 A graphical comparison of the projects' size in terms of files and lines of code (LOC) -- note the logarithmic scale of the y-axis:
 
-![Graphical comparison](https://github.com/xeraa/cms-security/raw/master/size.png)
-
-Interpretation:
+![Graphical comparison of the project size](https://github.com/xeraa/cms-security/raw/master/size.png)
 
 * Drupal is the slimmest project as practically everything is a module. Less code provides fewer possibilities to introduce bugs, so the highly modularized approach might be an advantage in terms of core vulnerabilities.
 * WordPress comes in second with three times the lines of code compared to Drupal.
@@ -147,35 +145,67 @@ Interpretation:
 
 
 ## Quantitative Comparison
-A quantitative comparison should be simple: Count the vulnerabilities and that's it. However, the devil is in the details and we're making the following assumptions:
+A quantitative comparison should be simple: Count the vulnerabilities and that's it.
 
-* How do you count vulnerabilities only present in version A (still supported), if a newer version B is already available? We're only taking a look at the latest stable release.
+### Assumptions
+However, the devil is in the details and we're making the following assumptions:
+
+* How do you count vulnerabilities only present in version A (still supported), if a newer version B is already available? If the same vulnerability is present in multiple versions, it's only counted as one. However, all vulnerabilities in supported releases are taken into account, not just the latest stable release..
 * What about issues in release candidates? We're only considering final code.
+* How should "hardening" be counted (I'm looking at you, WordPress)? If it needs hardening, it's counted. If other projects fix those silently: mea culpa.
+* What about features disabled by default? All the core code is counted, disabled or not.
 * Does it make a difference if a flaw is being fixed a single time or in multiple places with one update? If it's the same defect it's only counted a single time, even if it occurs multiple times.
 * What's a sensible time frame to consider? Too long and you're taking long gone code into account, too short and you're not getting the complete picture. Let's settle on the years 2010 and 2011.
 * What about modules, especially with Drupal? While the security of a CMS also depends on its modules, it's impossible to make a comparable selection. Should we try to achieve the same functionality across all systems, should we include the most popular X modules for each project,…?
+* Vulnerabilities per hundred thousand lines of code (LOC^5), rounded to thousands: Which lines do you count? HTML or CSS are not or at least less susceptible to security issues, while JavaScript or PHP are far more problematic. For simplicity we'll use the overall lines of code and not try to only count a subset or even weigh them.
 * Where do we get the list of vulnerabilities from? We're taking the official announcement of each project, specifically: [https://wordpress.org/news/category/security/](https://wordpress.org/news/category/security/), [https://drupal.org/security](https://drupal.org/security), [http://typo3.org/teams/security/security-bulletins/typo3-core/](http://typo3.org/teams/security/security-bulletins/typo3-core/), [http://developer.joomla.org/security/news/](http://developer.joomla.org/security/news/), and [http://www.silverstripe.org/security-releases/](http://www.silverstripe.org/security-releases/)
 
-| Year | Project       | Advisories | Vulnerabilities | Vulnerability per KLOC |
-|------|---------------|------------|-----------------|------------------------|
-| 2010 | WordPress     | 0          | 0               | 0                      |
-|      | Drupal        | 0          | 0               | 0                      |
-|      | TYPO3         | 0          | 0               | 0                      |
-|      | Joomla        | 0          | 0               | 0                      |
-|      | SilverStripe  | 0          | 0               | 0                      |
-|------|---------------|------------|-----------------|------------------------|
-| 2011 | WordPress     | 0          | 0               | 0                      |
-|      | Drupal        | 0          | 0               | 0                      |
-|      | TYPO3         | 0          | 0               | 0                      |
-|      | Joomla        | 0          | 0               | 0                      |
-|      | SilverStripe  | 0          | 0               | 0                      |
+### Vulnerabilities
 
+| Year | Project       | Advisories | Vulnerabilities | Vulnerability per LOC^5 |
+| 2010 | WordPress     |  3         |  4              |  4 / 1.54 =  2.60       |
+|      | Drupal        |  2         |  8              |  8 / 0.53 = 15.09       |
+|      | TYPO3         |  6         | 21              | 21 / 4.36 =  4.82       |
+|      | Joomla        | 10         | 10              | 10 / 2.35 =  4.26       |
+|      | SilverStripe  |  7         | 16              | 16 / 4.87 =  3.29       |
+| 2011 | WordPress     |  6         | 17              | 17 / 1.54 = 11.04       |
+|      | Drupal        |  3         |  5              |  5 / 0.53 =  9.43       |
+|      | TYPO3         |  4         |  8              |  8 / 4.36 =  1.83       |
+|      | Joomla        | 35         | 35              | 35 / 2.35 = 14.89       |
+|      | SilverStripe  |  1         |  3              |  3 / 4.87 =  0.62       |
+| Sum  | WordPress     |  9         | 21              | 21 / 1.54 = 13.64       |
+|      | Drupal        |  5         | 13              | 13 / 0.53 = 24.53       |
+|      | TYPO3         | 10         | 0               | 29 / 4.36 =  6.65       |
+|      | Joomla        | 45         | 45              | 45 / 2.35 = 19.15       |
+|      | SilverStripe  |  8         | 19              | 19 / 4.87 =  3.90       |
 
+A graphical comparison looks like this:
+
+![Graphical comparison of the number of vulnerabilities](https://github.com/xeraa/cms-security/raw/master/quantitative.png)
+
+### A Word on the Announcements
+
+* The [announcements of WordPress](https://wordpress.org/news/category/security/) are awful. First, the page was by far the hardest to locate. Second, the overview is extremely limited -- all other projects are doing this much better. Third, statements like ["Version 3.1.4 also incorporates several other security fixes and hardening measures […]"](https://wordpress.org/news/2011/06/wordpress-3-1-4/) really aren't transparent. The change log is referenced, but I really don't want to look through that to decide how important the update is. Finally, it mixes security vulnerabilities and regular issues making it pretty confusing.
+* [Drupal](https://drupal.org/security) does this much better, I would even say best. The overview is both compact and contains all the relevant information (affected version, risk assessment, local / remote).
+* [TYPO3's list](http://typo3.org/teams/security/security-bulletins/typo3-core/) isn't bad and the detail pages contain all relevant information. I just didn't understand the numbering schema in 2010: 001 (1 issue) is being followed by 004 (3 issues); next is 008 with 1 issue again.
+* [Joomla](http://developer.joomla.org/security/news.html) has probably too much information on the overview page, but everything of interest is there, so I can't really fault them for that.
+* The [overview page of SilverStripe](http://www.silverstripe.org/security-releases/) is very basic, but the linked detail pages contain a lot of information. A severity rating on the overview page would be nice, though.
+
+### Interpretation
+
+* While Joomla is still supporting 1.5, 1.6 has been replaced by 1.7 so they have only been supporting two versions at the same time (like most other projects). This is important as we don't want to punish projects for providing more support than others.
 
 
 ## Qualitative Comparison
-While a fair quantitative comparison is already hard, a balanced qualitative evaluation is probably impossible. 
+While a fair quantitative comparison is already hard, a balanced qualitative evaluation is probably impossible.
 
+Due to the fuzziness of WordPress's announcements, I can't give a sensible assessment. Therefore, WordPress will not be included in the qualitative comparison.
+
+
+## What About the Future and Overall Security?
+While the past track record can't make certain predictions for the future
+
+`.htaccess`
 
 ## Conclusion
 
