@@ -163,6 +163,7 @@ However, the devil is in the details and we're making the following assumptions:
 ### Vulnerabilities
 
 | Year | Project       | Advisories | Vulnerabilities | Vulnerability per LOC^5 |
+|------|---------------|------------|-----------------|-------------------------|
 | 2010 | WordPress     |  3         |  4              |  4 / 1.54 =  2.60       |
 |      | Drupal        |  2         |  8              |  8 / 0.53 = 15.09       |
 |      | TYPO3         |  6         | 21              | 21 / 4.36 =  4.82       |
