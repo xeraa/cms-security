@@ -150,7 +150,7 @@ A quantitative comparison should be simple: Count the vulnerabilities and that's
 ### Assumptions
 However, the devil is in the details and we're making the following assumptions:
 
-* How do you count vulnerabilities only present in version A (still supported), if a newer version B is already available? If the same vulnerability is present in multiple versions, it's only counted as one. However, all vulnerabilities in supported releases are taken into account, not just the latest stable release..
+* How do you count vulnerabilities only present in version A (still supported), if a newer version B is already available? If the same vulnerability is present in multiple versions, it's only counted as one. However, all vulnerabilities in supported releases are taken into account, not just the latest stable release.
 * What about issues in release candidates? We're only considering final code.
 * How should "hardening" be counted (I'm looking at you, WordPress)? If it needs hardening, it's counted. If other projects fix those silently: mea culpa.
 * What about features disabled by default? All the core code is counted, disabled or not.
@@ -158,7 +158,7 @@ However, the devil is in the details and we're making the following assumptions:
 * What's a sensible time frame to consider? Too long and you're taking long gone code into account, too short and you're not getting the complete picture. Let's settle on the years 2010 and 2011.
 * What about modules, especially with Drupal? While the security of a CMS also depends on its modules, it's impossible to make a comparable selection. Should we try to achieve the same functionality across all systems, should we include the most popular X modules for each project,…?
 * Vulnerabilities per hundred thousand lines of code (LOC^5), rounded to thousands: Which lines do you count? HTML or CSS are not or at least less susceptible to security issues, while JavaScript or PHP are far more problematic. For simplicity we'll use the overall lines of code and not try to only count a subset or even weigh them.
-* Where do we get the list of vulnerabilities from? We're taking the official announcement of each project, specifically: [https://wordpress.org/news/category/security/](https://wordpress.org/news/category/security/), [https://drupal.org/security](https://drupal.org/security), [http://typo3.org/teams/security/security-bulletins/typo3-core/](http://typo3.org/teams/security/security-bulletins/typo3-core/), [http://developer.joomla.org/security/news/](http://developer.joomla.org/security/news/), and [http://www.silverstripe.org/security-releases/](http://www.silverstripe.org/security-releases/)
+* Where do we get the list of vulnerabilities from? We're taking the official announcements of each project, specifically: [https://wordpress.org/news/category/security/](https://wordpress.org/news/category/security/), [https://drupal.org/security](https://drupal.org/security), [http://typo3.org/teams/security/security-bulletins/typo3-core/](http://typo3.org/teams/security/security-bulletins/typo3-core/), [http://developer.joomla.org/security/news/](http://developer.joomla.org/security/news/), and [http://www.silverstripe.org/security-releases/](http://www.silverstripe.org/security-releases/)
 
 ### Vulnerabilities
 
@@ -194,6 +194,10 @@ A graphical comparison looks like this:
 
 ### Interpretation
 
+* Joomla had the most vulnerabilities, more than 50% more than TYPO3.
+* Drupal had the least vulnerabilities in the given period, but also had the highest number of vulnerabilities per LOC -- which is kind of counter intuitive.
+* SilverStripe has had the least security issues per LOC and also the overall count is pretty low.
+* While TYPO3 and SilverStripe had significantly more security flaws in 2010 than in 2011, it's just the other way around for WordPress and Joomla. However, I wouldn't be so bold as to suggest the code base of the former ones has matured and will be (more) secure in the future. Taking a look at only two sample years, doesn't give an indication of development.
 * While Joomla is still supporting 1.5, 1.6 has been replaced by 1.7 so they have only been supporting two versions at the same time (like most other projects). This is important as we don't want to punish projects for providing more support than others.
 
 
