@@ -13,7 +13,7 @@ I'll include the following projects:
 * [Joomla](http://joomla.org)
 * [SilverStripe](href="http://www.silverstripe.org) -- I might be [a little biased here](https://www.amazon.com/SilverStripe-Module-Extension-Themes-Widgets/dp/184951500X), but I'll try to keep it as fair as possible
 
-Why isn't X included? Ask nicely or even provide some research and I might include it. And of course any corrections or feedback are highly appreciated :-).
+Why isn't X included? Ask nicely or even provide some research and I might include it. And of course any corrections or feedback are highly appreciated in the form of [tweets](https://twitter.com/xeraa), [pull requests](https://github.com/xeraa/cms-security/pulls), or [tickets](https://github.com/xeraa/cms-security/issues) :-).
 
 
 ## Are They Even Comparable?
