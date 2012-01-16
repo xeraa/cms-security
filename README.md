@@ -276,8 +276,8 @@ A graphical comparison looks like this:
 ### Interpretation
 
 * Joomla had the most vulnerabilities, but TYPO3 followed closely.
-* Drupal had the least vulnerabilities in the given period, but also had the highest number of vulnerabilities per LOC -- which is kind of counter intuitive.
-* SilverStripe has had the least security issues per LOC, but nearly double the issues compared to Drupal.
+* Drupal had the least vulnerabilities in the given period, but also had the highest number of vulnerabilities per LOC -- which I found rather surprising.
+* SilverStripe has had the least security issues per LOC, but nearly double the number compared to Drupal.
 * While TYPO3 and SilverStripe had significantly more security flaws in 2010 than in 2011, it's just the other way around for WordPress and Joomla. However, I wouldn't be so bold as to suggest the code base of the former ones has matured and will be (more) secure in the future. Taking a look at only two sample years, doesn't give an indication of development.
 * While Joomla is still supporting 1.5, 1.6 has been replaced by 1.7 so they have only been supporting two versions at the same time (like most other projects). This is important as we don't want to punish projects for providing more support than others.
 * TYPO3 supports three versions (stable, old stable, and deprecated). However, if I'm not mistaken, all security issues in the last two years have been part of the two latest releases (and sometimes older versions as well). Hence, the extended support policy hasn't been a disadvantage.
