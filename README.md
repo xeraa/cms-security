@@ -336,10 +336,14 @@ A graphical comparison looks like this:
 ### Interpretation
 
 * WordPress only had a single serious vulnerability (in case I interpreted that correctly) -- impressive.
+* Drupal did also well, only the percentage is a little higher due to the low number of overall issues.
+* In contrast to the first two, TYPO3 appeared to not do well at all. It has by far most serious vulnerabilities both in absolute numbers and the percentage. However, I would attribute part of the difference compared to the other projects to TYPO3's stricter rating of vulnerabilities. One should probably add a CVSS comparison to Drupal to get a more balanced result.
+* Joomla, while having the most vulnerabilities overall, did very well with serious ones (meaning it had few of those).
+SilverStripe seems to be floating somewhere between the other projects.
 
 
 ## Conclusion
-While the past track record can't make certain predictions for the future
+What did we learn? I think all projects are doing a pretty good job. 
 
 
 &copy; 2012 [Philipp Krenn](https://twitter.com/xeraa): [Attribution-ShareAlike 3.0 Unported (CC BY-SA 3.0)](https://creativecommons.org/licenses/by-sa/3.0/)
