@@ -1,7 +1,7 @@
 # CMS Security Track Record (2010 & 2011)
 
 
-**After making a (probably unwarranted) [remark on TYPO3's security](https://twitter.com/#!/xeraa/status/158250289005207553) on Twitter and further mentioning the high number of security flaws, [Søren Malling](https://twitter.com/sorenmalling) challenged me to it: "["All" those issues are dated since 2005..  Do some comparising and you will find its nothing!](https://twitter.com/#!/sorenmalling/status/158325493224062976)". I quickly googled the topic and only found some [comparison from 2008 and 2009](http://secure.t3sec.info/comparison/), so I decided to give it a go and do a little comparison myself.**
+**After making a (probably unwarranted) [remark on TYPO3's security](https://twitter.com/#!/xeraa/status/158250289005207553) on Twitter and further mentioning the high number of security flaws, [Søren Malling](https://twitter.com/sorenmalling) challenged me to it: "["All" those issues are dated since 2005..  Do some comparising and you will find its nothing!](https://twitter.com/#!/sorenmalling/status/158325493224062976)" I quickly googled the topic and only found some [comparison from 2008 and 2009](http://secure.t3sec.info/comparison/), so I decided to give it a go and do a little comparison myself.**
 
 
 ## The Contenders
