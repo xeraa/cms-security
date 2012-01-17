@@ -1,7 +1,7 @@
 # CMS Security Track Record (2010 & 2011)
 
 
-**After making a (probably unwarranted) [remark on TYPO3's security](https://twitter.com/#!/xeraa/status/158250289005207553) on Twitter and further mentioning the high number of security flaws, [Søren Malling](https://twitter.com/sorenmalling) challenged me to it: "["All" those issues are dated since 2005..  Do some comparising and you will find its nothing!](https://twitter.com/#!/sorenmalling/status/158325493224062976)". I quickly googled the topic and only found some [comparison from 2008 and 2009](http://secure.t3sec.info/comparison/), so I decided to give it a go and do a little comparison.**
+**After making a (probably unwarranted) [remark on TYPO3's security](https://twitter.com/#!/xeraa/status/158250289005207553) on Twitter and further mentioning the high number of security flaws, [Søren Malling](https://twitter.com/sorenmalling) challenged me to it: "["All" those issues are dated since 2005..  Do some comparising and you will find its nothing!](https://twitter.com/#!/sorenmalling/status/158325493224062976)". I quickly googled the topic and only found some [comparison from 2008 and 2009](http://secure.t3sec.info/comparison/), so I decided to give it a go and do a little comparison myself.**
 
 
 ## The Contenders
@@ -132,10 +132,11 @@ Good question! Probably, you can't compare TYPO3 to Wordpress for example -- bot
 	SUM:                           2803          44350          56344         487144
 	--------------------------------------------------------------------------------
 
-### Quick Comparison
 A graphical comparison of the projects' size in terms of files and lines of code (LOC) -- note the logarithmic scale of the y-axis:
 
 ![Graphical comparison of the project size](https://github.com/xeraa/cms-security/raw/master/size.png)
+
+### Interpretation
 
 * Drupal is the slimmest project as practically everything is a module. Less code provides fewer possibilities to introduce bugs, so the highly modularized approach might be an advantage in terms of core vulnerabilities.
 * WordPress comes in second with three times the lines of code compared to Drupal.
