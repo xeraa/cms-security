@@ -339,11 +339,13 @@ A graphical comparison looks like this:
 * Drupal did also well, only the percentage is a little higher due to the low number of overall issues.
 * In contrast to the first two, TYPO3 appeared to not do well at all. It has by far most serious vulnerabilities both in absolute numbers and the percentage. However, I would attribute part of the difference compared to the other projects to TYPO3's stricter rating of vulnerabilities. One should probably add a CVSS comparison to Drupal to get a more balanced result.
 * Joomla, while having the most vulnerabilities overall, did very well with serious ones (meaning it had few of those).
-SilverStripe seems to be floating somewhere between the other projects.
+* SilverStripe seems to be floating somewhere between the other projects, neither being exceptionally good or bad.
 
 
 ## Conclusion
-What did we learn? I think all projects are doing a pretty good job. 
+What did we learn? I think all projects are doing a pretty good job overall. There are differences, but if you factor in LOC, features,… the projects are more similar than I would have expected.
+
+Will I take back my initial comment on TYPO3? Not really. While 2011 has been much better than 2010, I'm still not too impressed with their numbers -- sorry! Having said that, it's hard or nearly impossible to have a totally fair comparison.
 
 
 &copy; 2012 [Philipp Krenn](https://twitter.com/xeraa): [Attribution-ShareAlike 3.0 Unported (CC BY-SA 3.0)](https://creativecommons.org/licenses/by-sa/3.0/)
