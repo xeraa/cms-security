@@ -164,7 +164,7 @@ However, the devil is in the details and we're making the following assumptions:
 
 ### Vulnerabilities
 
-| Year | Project       | Advisories | Vulnerabilities | Vulnerability per LOC^5 |
+| Year | Project           | Advisories | Vulnerabilities | Vulnerability per LOC^5 |
 |------|-------------------|------------|-----------------|-------------------------|
 | 2010 | WordPress (1)     |  3         |  4              |  4 / 1.54 =  2.60       |
 |      | Drupal (2)        |  2         |  8              |  8 / 0.53 = 15.09       |
@@ -177,9 +177,9 @@ However, the devil is in the details and we're making the following assumptions:
 |      | Joomla (9)        | 35         | 35              | 35 / 2.35 = 14.89       |
 |      | SilverStripe (10) |  1         |  5              |  5 / 4.87 =  1.03       |
 | Sum  | WordPress         |  9         | 23              | 23 / 1.54 = 14.94       |
-|      | Drupal        |  5         | 13              | 13 / 0.53 = 24.53       |
+|      | Drupal            |  5         | 13              | 13 / 0.53 = 24.53       |
 |      | TYPO3             | 10         | 42              | 42 / 4.36 =  9.63       |
-|      | Joomla        | 45         | 45              | 45 / 2.35 = 19.15       |
+|      | Joomla            | 45         | 45              | 45 / 2.35 = 19.15       |
 |      | SilverStripe      |  8         | 25              | 25 / 4.87 =  5.13       |
 
 Detailed list of advisories and vulnerabilities:
@@ -284,19 +284,62 @@ A graphical comparison looks like this:
 
 
 ## Qualitative Comparison
-While a fair quantitative comparison is already hard, a balanced qualitative evaluation is probably impossible.
+Besides doing a "simple" quantitative comparison, this doesn't give a complete picture. If a project has ten minor security flaws, it looks much worse in the previous comparison than a project having four really bad ones. In order to give a more balanced overview, we should take a better look at the "quality" of issues.
 
-Due to the fuzziness of WordPress's announcements, I can't give a sensible assessment. Therefore, WordPress will not be included in the qualitative comparison.
+### Assumptions
+While a fair quantitative comparison is already hard, a balanced qualitative evaluation is probably impossible. Nevertheless, let's try it with the given set of assumptions on the rating of severity:
 
+* As Common Vulnerability Scoring System (CVSS) values are not available for all security flaws, we can't use them -- this would have been the most balanced approach.
+* Instead I'll take a very simple approach: Count how many of the vulnerabilities are serious. We'll try to only include issues which should be fixed immediately and filter out stuff that can probably wait for the next maintenance window. I find this distinction useful as I want to know how often I have to put out fires. The following points will specify what's serious and what's not for each project.
+* In WordPress I'll rely on the announcement text. Due to the fuzziness of the bulletins, these numbers will be less authoritative than others.
+* Drupal has a good risk assessment and I'll count their [risk levels](https://drupal.org/security-team/risk-levels) of "Highly Critical" (5 of 5) and "Critical" (4 of 5) as serious. Unfortunately only the whole advisory is rated, so the individual issues must be evaluated.
+* For TYPO3 it's pretty similar, "Critical" (4 of 4) and "High" (3 of 4) of their [severity meaning](http://typo3.org/documentation/document-library/extension-manuals/doc_guide_security/1.0.0/view/1/3/#id2313132) are considered serious.
+* [Joomla's security team](http://developer.joomla.org/security.html) uses exactly the same severity as TYPO3.
+* SilverStripe doesn't have severity levels (yet), so the very detailed changes will be used here -- pretty much the same as with WordPress.
 
-## What About the Future and Overall Security?
-While the past track record can't make certain predictions for the future
+### Vulnerabilities
 
-`.htaccess`
+| Project           | Serious Vulnerabilities | Percentage of serious issues |
+|-------------------|-------------------------|------------------------------|
+| WordPress (1)     |  1                      |  1 / 23 =  4%                |
+| Drupal (2)        |  3                      |  3 / 13 = 23%                |
+| TYPO3 (3)         | 18                      | 18 / 42 = 43%                |
+| Joomla (4)        |  3                      |  3 / 45 =  7%                |
+| SilverStripe (5)  |  4                      |  4 / 25 = 16%                |
+
+Detailed list of serious vulnerabilities:
+
+1. [3.0.4](https://wordpress.org/news/2010/12/3-0-4-update/): 1
+2. [SA-CORE-2011-002](https://drupal.org/node/1204582): 1,
+   [SA-CORE-2011-001](https://drupal.org/node/1168756): 0 (I wouldn't consider any of these serious despite the bulletin's rating),
+   [SA-CORE-2010-002](https://drupal.org/node/880476): 1 ("OpenID authentication bypass"),
+   [SA-CORE-2010-001](https://drupal.org/node/731710): 1 ("Open redirection")
+3. [TYPO3-CORE-SA-2011-004](http://typo3.org/teams/security/security-bulletins/typo3-core/typo3-core-sa-2011-004/): 1,
+   [TYPO3-CORE-SA-2011-001](http://typo3.org/teams/security/security-bulletins/typo3-core/typo3-core-sa-2011-001/): 4,
+    [TYPO3-SA-2010-022](http://typo3.org/teams/security/security-bulletins/typo3-core/typo3-sa-2010-022/): 2,
+   [TYPO3-SA-2010-020](http://typo3.org/teams/security/security-bulletins/typo3-core/typo3-sa-2010-020/): 1,
+   [TYPO3-SA-2010-012](http://typo3.org/teams/security/security-bulletins/typo3-core/typo3-sa-2010-012/): 7,
+   [TYPO3-SA-2010-008](http://typo3.org/teams/security/security-bulletins/typo3-core/typo3-sa-2010-008/): 1,
+   [TYPO3-SA-2010-004](http://typo3.org/teams/security/security-bulletins/typo3-core/typo3-sa-2010-004/): 1,
+   [TYPO3-SA-2010-001](http://typo3.org/teams/security/security-bulletins/typo3-core/typo3-sa-2010-001/): 1
+4. [20111103](http://developer.joomla.org/security/news/375-20111103-core-password-change.html),
+   [20111102](http://developer.joomla.org/security/news/374-20111102-core-password-change.html),
+   [20100501](http://developer.joomla.org/security/news/314-20100501-core-xss-vulnerabilities-in-back-end.html)
+5. [2.4.6](http://doc.silverstripe.org/sapphire/en/trunk/changelogs/2.4.6): 2 ("Possible SQL injection for MySQL when using far east character encodings", "Potential remote code execution through serialization of page comment user submissions"),
+   [2.4.4](http://doc.silverstripe.org/sapphire/en/changelogs/2.4.4): 1 ("SQL injection with Translatable extension enabled"),
+   [2.3.7](http://doc.silverstripe.org/sapphire/en/changelogs/2.3.7): 1 ("Fixing Member_ProfileForm to validate for existing members via Member_Validator to avoid CMS users to switch to another existing user account by using their email address")
+
+A graphical comparison looks like this:
+
+![Graphical comparison of the number of serious vulnerabilities](https://github.com/xeraa/cms-security/raw/master/qualitative.png)
+
+### Interpretation
+
+* WordPress only had a single serious vulnerability (in case I interpreted that correctly) -- impressive.
+
 
 ## Conclusion
-
-
+While the past track record can't make certain predictions for the future
 
 
 &copy; 2012 [Philipp Krenn](https://twitter.com/xeraa): [Attribution-ShareAlike 3.0 Unported (CC BY-SA 3.0)](https://creativecommons.org/licenses/by-sa/3.0/)
