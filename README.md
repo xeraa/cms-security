@@ -109,6 +109,47 @@ Good question! Probably, you can't compare TYPO3 to Wordpress for example -- bot
 	SUM:                          2054          48383          79983         235165
 	-------------------------------------------------------------------------------
 
+### MODX 2.2.0-pl2
+[http://modx.com/download/downloading/?id=4f04c7baf2455425fb0000e1](http://modx.com/download/downloading/?id=4f04c7baf2455425fb0000e1) -- the "Traditional" package, which should be most similar to the other releases
+
+	3100 text files.
+	3063 unique files.
+	 684 files ignored.
+
+	http://cloc.sourceforge.net v 1.53  T=9.0 s (267.0 files/s, 38849.8 lines/s)
+	-------------------------------------------------------------------------------
+	Language                     files          blank        comment           code
+	-------------------------------------------------------------------------------
+	PHP                           2079          23289          65373         171347
+	Javascript                     211           3741           5387          46655
+	CSS                             95           4983           1020          23957
+	XML                             12            436            285           2705
+	Java                             1             47             62            182
+	SQL                              4             20             37            120
+	HTML                             1              0              0              2
+	-------------------------------------------------------------------------------
+	SUM:                          2403          32516          72164         244968
+	-------------------------------------------------------------------------------
+
+### ExpressionEngine 2.3.1
+Code kindly provided by [http://www.cmscritic.com](http://www.cmscritic.com)
+
+	1043 text files.
+	 939 unique files.                                          
+	  40 files ignored.
+	
+	http://cloc.sourceforge.net v 1.53  T=7.0 s (129.4 files/s, 42751.4 lines/s)
+	-------------------------------------------------------------------------------
+	Language                     files          blank        comment           code
+	-------------------------------------------------------------------------------
+	PHP                            720          43920          51284         185995
+	CSS                             20           2232            955          10492
+	Javascript                     148            272           1211           1732
+	HTML                            18            258            121            788
+	-------------------------------------------------------------------------------
+	SUM:                           906          46682          53571         199007
+	-------------------------------------------------------------------------------
+
 ### SilverStripe 2.4.6
 [http://www.silverstripe.org/assets/downloads/SilverStripe-v2.4.6.tar.gz](http://www.silverstripe.org/assets/downloads/SilverStripe-v2.4.6.tar.gz)
 
@@ -142,8 +183,9 @@ A graphical comparison of the projects' size in terms of files and lines of code
 
 * Drupal is the slimmest project as practically everything is a module. Less code provides fewer possibilities to introduce bugs, so the highly modularized approach might be an advantage in terms of core vulnerabilities.
 * WordPress comes in second with three times the lines of code compared to Drupal.
-* Joomla takes the third place sitting pretty much in the middle of the enclosing projects.
-* TYPO3 and SilverStripe are nearly of identical size, so their comparison might be the most balanced one. However, TYPO3's lines of PHP code are nearly twice as high as SilverStripe's one, making it hard to give an unbiased relation.
+* The third place is taken by ExpressionEngine with a low number of files -- making it relatively similar to WordPress.
+* Joomla and MODX are very alike and take the fourth place, sitting pretty much in the middle of the enclosing projects.
+* TYPO3 and SilverStripe are (again) nearly of identical size, so their comparison might be well balanced. However, TYPO3's lines of PHP code are nearly twice as high as SilverStripe's one, making it hard to give an unbiased relation.
 * One could compare quite some interesting facts about the projects (lines of code per file, comments per LOC, ratio PHP to JavaScript,…), but that's not relevant for the security analysis, so we'll leave it at that.
 
 
