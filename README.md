@@ -11,8 +11,8 @@ I'll include the following projects:
 * [Drupal](https://drupal.org)
 * [TYPO3](https://typo3.org)
 * [Joomla](http://joomla.org)
-* [MODX](http://modx.com)
-* [ExpressionEngine](http://expressionengine.com)
+* [MODX](http://modx.com) (as requested)
+* [ExpressionEngine](http://expressionengine.com) (as requested)
 * [SilverStripe](href="http://www.silverstripe.org) -- I might be [a little biased here](https://www.amazon.com/SilverStripe-Module-Extension-Themes-Widgets/dp/184951500X), but I'll try to keep it as fair as possible
 
 Why isn't X included? Ask nicely or even provide some research and I might include it. And of course any corrections or feedback are highly appreciated in the form of [tweets](https://twitter.com/xeraa), [pull requests](https://github.com/xeraa/cms-security/pulls), or [tickets](https://github.com/xeraa/cms-security/issues) :-).
@@ -110,7 +110,7 @@ Good question! Probably, you can't compare TYPO3 to Wordpress for example -- bot
 	-------------------------------------------------------------------------------
 
 ### MODX 2.2.0-pl2
-[http://modx.com/download/downloading/?id=4f04c7baf2455425fb0000e1](http://modx.com/download/downloading/?id=4f04c7baf2455425fb0000e1) -- the "Traditional" package, which should be most similar to the other releases
+[http://modx.com/download/downloading/?id=4f04c7baf2455425fb0000e1](http://modx.com/download/downloading/?id=4f04c7baf2455425fb0000e1) -- the "Traditional" package, which should be most similar to the other releases.
 
 	3100 text files.
 	3063 unique files.
@@ -132,7 +132,7 @@ Good question! Probably, you can't compare TYPO3 to Wordpress for example -- bot
 	-------------------------------------------------------------------------------
 
 ### ExpressionEngine 2.3.1
-Code kindly provided by [http://www.cmscritic.com](http://www.cmscritic.com)
+Code kindly provided by [http://www.cmscritic.com](http://www.cmscritic.com).
 
 	1043 text files.
 	 939 unique files.                                          
@@ -182,7 +182,7 @@ A graphical comparison of the projects' size in terms of files and lines of code
 ### Interpretation
 
 * Drupal is the slimmest project as practically everything is a module. Less code provides fewer possibilities to introduce bugs, so the highly modularized approach might be an advantage in terms of core vulnerabilities.
-* WordPress comes in second with three times the lines of code compared to Drupal.
+* WordPress comes in second with already three times the lines of code compared to Drupal.
 * The third place is taken by ExpressionEngine with a low number of files -- making it relatively similar to WordPress.
 * Joomla and MODX are very alike and take the fourth place, sitting pretty much in the middle of the enclosing projects.
 * TYPO3 and SilverStripe are (again) nearly of identical size, so their comparison might be well balanced. However, TYPO3's lines of PHP code are nearly twice as high as SilverStripe's one, making it hard to give an unbiased relation.
@@ -203,8 +203,8 @@ However, the devil is in the details and we're making the following assumptions:
 * Does it make a difference if a flaw is being fixed a single time or in multiple places with one update? If it's the same defect it's only counted a single time, even if it occurs multiple times.
 * What about modules, especially with Drupal? While the security of a CMS also depends on its modules, it's impossible to make a comparable selection. Should we try to achieve the same functionality across all systems, should we include the most popular X modules for each project,…?
 * Vulnerabilities per hundred thousand lines of code (LOC^5), rounded to thousands: Which lines do you count? HTML or CSS are not or at least less susceptible to security issues, while JavaScript or PHP are far more problematic. For simplicity we'll use the overall lines of code and not try to only count a subset or even weigh them.
-* Except for ExpressionEngine all other CMS are open source products. This comparison cannot provide any evaluation of the difference between open and closed source software. On the one hand, having only a single closed source project does not give a balanced picture. On the other hand, ExpressionEngine's source code is available to everyone buying a license. So it is quite different than for example Microsoft Windows, where the source code is a well kept secret.
-* Neither [Secunia](https://secunia.com/advisories/search/), [NIST](http://web.nvd.nist.gov/view/vuln/search), [ISS](http://webapp.iss.net/Search.do?searchType=vuln&keyword=), [OSVDB](http://osvdb.org/search/advsearch), or [SecurityFocus](http://www.securityfocus.com/bid) seem to list all vulnerabilities (especially for the lesser known SilverStripe). So they can't be used for an overall assessment. *Addendum: According to [Ingo Schommer](https://twitter.com/chillu), SilverStripe tried to add their vulnerabilities to Secunia, but they [were ignored](https://twitter.com/#!/chillu/status/159212258398978048).*
+* Except for ExpressionEngine all other CMS are open source products. This comparison cannot provide any evaluation of the difference between open and closed source software. On the one hand, having only a single closed source project does not give a balanced picture. On the other hand, ExpressionEngine's source code is available to everyone buying a license. So it is quite different to Microsoft Windows for example, where the source code is a well kept secret.
+* Neither [Secunia](https://secunia.com/advisories/search/), [NIST](http://web.nvd.nist.gov/view/vuln/search), [ISS](http://webapp.iss.net/Search.do?searchType=vuln&keyword=), [OSVDB](http://osvdb.org/search/advsearch), or [SecurityFocus](http://www.securityfocus.com/bid) seem to list all vulnerabilities (especially for the lesser known SilverStripe). So they cannot be used for an overall assessment. *Addendum: According to [Ingo Schommer](https://twitter.com/chillu), SilverStripe tried to add their vulnerabilities to Secunia, but they [were ignored](https://twitter.com/#!/chillu/status/159212258398978048).*
 * Where do we get the list of vulnerabilities from? We're taking the official announcements of each project, specifically: [https://wordpress.org/news/category/security/](https://wordpress.org/news/category/security/), [https://drupal.org/security](https://drupal.org/security), [http://typo3.org/teams/security/security-bulletins/typo3-core/](http://typo3.org/teams/security/security-bulletins/typo3-core/), [http://developer.joomla.org/security/news/](http://developer.joomla.org/security/news/), and [http://www.silverstripe.org/security-releases/](http://www.silverstripe.org/security-releases/)
 
 
