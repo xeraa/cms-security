@@ -5,7 +5,7 @@
 
 
 ## The Contenders
-I'll include the following projects:
+I will include the following projects:
 
 * [WordPress](https://wordpress.org)
 * [Drupal](https://drupal.org)
@@ -13,13 +13,13 @@ I'll include the following projects:
 * [Joomla](http://joomla.org)
 * [MODX](http://modx.com) (as requested)
 * [ExpressionEngine](http://expressionengine.com) (as requested)
-* [SilverStripe](href="http://www.silverstripe.org) -- I might be [a little biased here](https://www.amazon.com/SilverStripe-Module-Extension-Themes-Widgets/dp/184951500X), but I'll try to keep it as fair as possible
+* [SilverStripe](href="http://www.silverstripe.org) -- I might be [a little biased here](https://www.amazon.com/SilverStripe-Module-Extension-Themes-Widgets/dp/184951500X), but I will try to keep it as fair as possible
 
-Why isn't X included? Ask nicely or even provide some research and I might include it. And of course any corrections or feedback are highly appreciated in the form of [tweets](https://twitter.com/xeraa), [pull requests](https://github.com/xeraa/cms-security/pulls), or [tickets](https://github.com/xeraa/cms-security/issues) :-).
+Why is X not included? Ask nicely or even provide some research and I might include it. And of course any corrections or feedback are highly appreciated in the form of [tweets](https://twitter.com/xeraa), [pull requests](https://github.com/xeraa/cms-security/pulls), or [tickets](https://github.com/xeraa/cms-security/issues) :-).
 
 
 ## Are They Even Comparable?
-Good question! Probably, you can't compare TYPO3 to Wordpress for example -- both in terms of features, lines of code, age of codebase,... To get a better "feeling" for the projects, I'll run the latest stable version of each project through [CLOC](https://cloc.sourceforge.net). That still doesn't make it a "fair" comparison (if there is such a thing), but we're at least getting a better picture of the differences.
+Good question! Probably, you cannot compare TYPO3 to Wordpress for example -- both in terms of features, lines of code, age of codebase,... To get a better "feeling" for the projects, I will run the latest stable version of each project through [CLOC](https://cloc.sourceforge.net). That still does not make it a "fair" comparison (if there is such a thing), but we are at least getting a better picture of the differences.
 
 ###WordPress 3.3.1
 [http://wordpress.org/wordpress-3.3.1.tar.gz](http://wordpress.org/wordpress-3.3.1.tar.gz)
@@ -65,7 +65,7 @@ Good question! Probably, you can't compare TYPO3 to Wordpress for example -- bot
 	-------------------------------------------------------------------------------
 
 ### TYPO3 4.6.3
-[http://prdownloads.sourceforge.net/typo3/blankpackage-4.6.3.tar.gz?download](http://prdownloads.sourceforge.net/typo3/blankpackage-4.6.3.tar.gz?download) -- I went with the "Blank Package" as it's probably the one most similar to the other releases
+[http://prdownloads.sourceforge.net/typo3/blankpackage-4.6.3.tar.gz?download](http://prdownloads.sourceforge.net/typo3/blankpackage-4.6.3.tar.gz?download) -- I went with the "Blank Package" as it is probably the one most similar to the other releases
 
 	3452 text files.
 	3370 unique files.
@@ -186,26 +186,26 @@ A graphical comparison of the projects' size in terms of files and lines of code
 * The third place is taken by ExpressionEngine with a low number of files -- making it relatively similar to WordPress.
 * Joomla and MODX are very alike and take the fourth place, sitting pretty much in the middle of the enclosing projects.
 * TYPO3 and SilverStripe are (again) nearly of identical size, so their comparison might be well balanced. However, TYPO3's lines of PHP code are nearly twice as high as SilverStripe's one, making it hard to give an unbiased relation.
-* One could compare quite some interesting facts about the projects (lines of code per file, comments per LOC, ratio PHP to JavaScript,…), but that's not relevant for the security analysis, so we'll leave it at that.
+* One could compare quite some interesting facts about the projects (lines of code per file, comments per LOC, ratio PHP to JavaScript,…), but that is not relevant for the security analysis, so we will leave it at that.
 
 
 ## Quantitative Comparison
-A quantitative comparison should be simple: Count the vulnerabilities and that's it.
+A quantitative comparison should be simple: Count the vulnerabilities and that is it.
 
 ### Assumptions
-However, the devil is in the details and we're making the following assumptions:
+However, the devil is in the details and we are making the following assumptions:
 
-* What's a sensible time frame to consider? Too long and you're taking long gone code into account, too short and you're not getting the complete picture. Let's settle on the years 2010 and 2011.
-* How do you count vulnerabilities only present in version A (still supported), if a newer version B is already available? If the same vulnerability is present in multiple versions, it's only counted as one. However, all vulnerabilities in supported releases are taken into account, not just the latest stable release.
-* What about issues in release candidates? We're only considering final code.
-* How should "hardening" be counted (I'm looking at you, WordPress)? If it needs hardening, it's counted. If other projects fix those silently: They shouldn't -- if pointed out I'll include such changes.
+* What is a sensible time frame to consider? Too long and you are taking long gone code into account, too short and you are not getting the complete picture. Let us settle on the years 2010 and 2011.
+* How do you count vulnerabilities only present in version A (still supported), if a newer version B is already available? If the same vulnerability is present in multiple versions, it is only counted as one. However, all vulnerabilities in supported releases are taken into account, not just the latest stable release.
+* What about issues in release candidates? We are only considering final code.
+* How should "hardening" be counted (I am looking at you, WordPress and ExpressionEngine)? If it needs hardening, it is counted. If other projects fix those silently: They should not -- if pointed out I will include such changes.
 * What about features disabled by default? All the core code is counted, disabled or not.
-* Does it make a difference if a flaw is being fixed a single time or in multiple places with one update? If it's the same defect it's only counted a single time, even if it occurs multiple times.
-* What about modules, especially with Drupal? While the security of a CMS also depends on its modules, it's impossible to make a comparable selection. Should we try to achieve the same functionality across all systems, should we include the most popular X modules for each project,…?
-* Vulnerabilities per hundred thousand lines of code (LOC^5), rounded to thousands: Which lines do you count? HTML or CSS are not or at least less susceptible to security issues, while JavaScript or PHP are far more problematic. For simplicity we'll use the overall lines of code and not try to only count a subset or even weigh them.
+* Does it make a difference if a flaw is being fixed a single time or in multiple places with one update? If it is the same defect it is only counted a single time, even if it occurs multiple times.
+* What about modules, especially with Drupal? While the security of a CMS also depends on its modules, it is impossible to make a comparable selection. Should we try to achieve the same functionality across all systems, should we include the most popular X modules for each project,…?
+* Vulnerabilities per hundred thousand lines of code (LOC^5), rounded to thousands: Which lines do you count? HTML or CSS are not or at least less susceptible to security issues, while JavaScript or PHP are far more problematic. For simplicity we will use the overall lines of code and not try to only count a subset or even weigh them.
 * Except for ExpressionEngine all other CMS are open source products. This comparison cannot provide any evaluation of the difference between open and closed source software. On the one hand, having only a single closed source project does not give a balanced picture. On the other hand, ExpressionEngine's source code is available to everyone buying a license. So it is quite different to Microsoft Windows for example, where the source code is a well kept secret.
 * Neither [Secunia](https://secunia.com/advisories/search/), [NIST](http://web.nvd.nist.gov/view/vuln/search), [ISS](http://webapp.iss.net/Search.do?searchType=vuln&keyword=), [OSVDB](http://osvdb.org/search/advsearch), or [SecurityFocus](http://www.securityfocus.com/bid) seem to list all vulnerabilities (especially for the lesser known SilverStripe). So they cannot be used for an overall assessment. *Addendum: According to [Ingo Schommer](https://twitter.com/chillu), SilverStripe tried to add their vulnerabilities to Secunia, but they [were ignored](https://twitter.com/#!/chillu/status/159212258398978048).*
-* Where do we get the list of vulnerabilities from? We're taking the official announcements of each project, specifically: [https://wordpress.org/news/category/security/](https://wordpress.org/news/category/security/), [https://drupal.org/security](https://drupal.org/security), [http://typo3.org/teams/security/security-bulletins/typo3-core/](http://typo3.org/teams/security/security-bulletins/typo3-core/), [http://developer.joomla.org/security/news/](http://developer.joomla.org/security/news/), [http://forums.modx.com/board/8/security-notices](http://forums.modx.com/board/8/security-notices), [http://expressionengine.com/user_guide/changelog.html](http://expressionengine.com/user_guide/changelog.html) as well as [http://expressionengine.com/legacy_docs/changelog.html](http://expressionengine.com/legacy_docs/changelog.html), and [http://www.silverstripe.org/security-releases/](http://www.silverstripe.org/security-releases/)
+* Where do we get the list of vulnerabilities from? We are taking the official announcements of each project, specifically: [https://wordpress.org/news/category/security/](https://wordpress.org/news/category/security/), [https://drupal.org/security](https://drupal.org/security), [http://typo3.org/teams/security/security-bulletins/typo3-core/](http://typo3.org/teams/security/security-bulletins/typo3-core/), [http://developer.joomla.org/security/news/](http://developer.joomla.org/security/news/), [http://forums.modx.com/board/8/security-notices](http://forums.modx.com/board/8/security-notices), [http://expressionengine.com/user_guide/changelog.html](http://expressionengine.com/user_guide/changelog.html) as well as [http://expressionengine.com/legacy_docs/changelog.html](http://expressionengine.com/legacy_docs/changelog.html), and [http://www.silverstripe.org/security-releases/](http://www.silverstripe.org/security-releases/)
 
 
 ### Vulnerabilities
@@ -254,7 +254,7 @@ Detailed list of advisories and vulnerabilities:
    [20100501](http://developer.joomla.org/security/news/314-20100501-core-xss-vulnerabilities-in-back-end.html),
    [20100423](http://developer.joomla.org/security/news/310-20100423-core-installer-migration-script.html),
    [20100423](http://developer.joomla.org/security/news/309-20100423-core-sessation-fixation.html),
-   [20100423](http://developer.joomla.org/security/news/311-20100423-core-negative-values-for-limit-and-offset.html) (the last three are dates, that's why they are exactly the same)
+   [20100423](http://developer.joomla.org/security/news/311-20100423-core-negative-values-for-limit-and-offset.html) (the last three are dates, that is why they are exactly the same)
 5.
 6.
 7. [2.4.4](http://doc.silverstripe.org/sapphire/en/changelogs/2.4.4): 8,
@@ -321,12 +321,12 @@ A graphical comparison looks like this:
 
 ### A Word on the Announcements
 
-* The [announcements of WordPress](https://wordpress.org/news/category/security/) are not that great. First, the page was (at least for me) pretty hard to locate. Second, the overview is very limited -- most other projects are doing this better. Third, statements like "[Version 3.1.4 also incorporates several other security fixes and hardening measures […]](https://wordpress.org/news/2011/06/wordpress-3-1-4/)" really aren't transparent. The change log is referenced, but I really don't want to look through that to decide how important the update is. Finally, it mixes security vulnerabilities and regular issues making it pretty confusing.
+* The [announcements of WordPress](https://wordpress.org/news/category/security/) are not that great. First, the page was (at least for me) pretty hard to locate. Second, the overview is very limited -- most other projects are doing this better. Third, statements like "[Version 3.1.4 also incorporates several other security fixes and hardening measures […]](https://wordpress.org/news/2011/06/wordpress-3-1-4/)" really are not transparent. The change log is referenced, but I really do not want to look through that to decide how important the update is. Finally, it mixes security vulnerabilities and regular issues making it pretty confusing.
 * [Drupal](https://drupal.org/security) does this much better, I would even say best. The overview is both compact and contains all the relevant information (affected version, risk assessment, local / remote).
-* [TYPO3's list](http://typo3.org/teams/security/security-bulletins/typo3-core/) isn't bad and the detail pages contain all relevant information. I just didn't understand the numbering schema in 2010: 001 (1 issue) is being followed by 004 (3 issues); next is 008 with 1 issue again.
-* [Joomla](http://developer.joomla.org/security/news.html) has probably too much information on the overview page, but everything of interest is there, so I can't really fault them for that.
+* [TYPO3's list](http://typo3.org/teams/security/security-bulletins/typo3-core/) is not bad and the detail pages contain all relevant information. I just did not understand the numbering schema in 2010: 001 (1 issue) is being followed by 004 (3 issues); next is 008 with 1 issue again.
+* [Joomla](http://developer.joomla.org/security/news.html) has probably too much information on the overview page, but everything of interest is there, so I cannot really fault them for that.
 * MODX did a great job at hiding their security notices -- or at least I had that impression. After finding [http://forums.modx.com/board/8/security-notices](http://forums.modx.com/board/8/security-notices) it got me a little bit confused. Not only does it include non-core issues for popular modules, it includes [a PHP issue and MODX filter](http://forums.modx.com/thread/267/critical-php-bug-security-notice-and-patch#dis-post-1673) as well. While the overview is rather useless, the detailed descriptions are decent.
-* ExpressionEngine's security notices are so well hidden, I am not sure if I have found the correct page or not -- the full blown change log. Adding injury to insult, it's split into the [1.x](http://expressionengine.com/legacy_docs/changelog.html) and [2.x](http://expressionengine.com/user_guide/changelog.html) change log. Do not ask for severity ratings, there are none. This is definitely the least transparent and overall worst announcement page of all systems. Maybe that's intentional, as ExpressionEngine has been criticized for their "[Quiet release](http://www.lullabot.com/articles/drupal-and-expressionengine-security-models)" approach before.
+* ExpressionEngine's security notices are so well hidden, I am not sure if I have found the correct page or not -- the full blown change log. Adding injury to insult, it is split into the [1.x](http://expressionengine.com/legacy_docs/changelog.html) and [2.x](http://expressionengine.com/user_guide/changelog.html) change log. Do not ask for severity ratings, there are none. This is definitely the least transparent and overall worst announcement page of all systems. Maybe that is intentional, as ExpressionEngine has been criticized for their "[Quiet release](http://www.lullabot.com/articles/drupal-and-expressionengine-security-models)" approach before.
 * The [overview page of SilverStripe](http://www.silverstripe.org/security-releases/) is very basic, but the linked detail pages contain a lot of information. ~~A severity rating on the overview page or at least in the details would be nice, though.~ *Addendum: A severity rating has been added (actually, I got it started): [http://doc.silverstripe.org/sapphire/en/trunk/misc/release-process#severity-rating](http://doc.silverstripe.org/sapphire/en/trunk/misc/release-process#severity-rating)*
 
 ### Interpretation
@@ -334,25 +334,25 @@ A graphical comparison looks like this:
 * Joomla had the most vulnerabilities, but TYPO3 followed closely.
 * Drupal had the least vulnerabilities in the given period, but also had the highest number of vulnerabilities per LOC -- which I found rather surprising.
 * SilverStripe has had the least security issues per LOC, but nearly double the number compared to Drupal.
-* While TYPO3 and SilverStripe had significantly more security flaws in 2010 than in 2011, it's just the other way around for WordPress and Joomla. However, I wouldn't be so bold as to suggest the code base of the former ones has matured and will be (more) secure in the future. Taking a look at only two sample years, doesn't give an indication of development.
-* While Joomla is still supporting 1.5, 1.6 has been replaced by 1.7 so they have only been supporting two versions at the same time (like most other projects). This is important as we don't want to punish projects for providing more support than others.
-* TYPO3 supports three versions (stable, old stable, and deprecated). However, if I'm not mistaken, all security issues in the last two years have been part of the two latest releases (and sometimes older versions as well). Hence, the extended support policy hasn't been a disadvantage.
-* Could the number of discovered flaws correlate with the number of audits or active users? Meaning that less popular projects might have many undiscovered issues while popular ones don't? This might be true, but I don't see a reliable way to take that into account.
+* While TYPO3 and SilverStripe had significantly more security flaws in 2010 than in 2011, it is just the other way around for WordPress and Joomla. However, I would not be so bold as to suggest the code base of the former ones has matured and will be (more) secure in the future. Taking a look at only two sample years, does not give an indication of development.
+* While Joomla is still supporting 1.5, 1.6 has been replaced by 1.7 so they have only been supporting two versions at the same time (like most other projects). This is important as we do not want to punish projects for providing more support than others.
+* TYPO3 supports three versions (stable, old stable, and deprecated). However, if I am not mistaken, all security issues in the last two years have been part of the two latest releases (and sometimes older versions as well). Hence, the extended support policy has not been a disadvantage.
+* Could the number of discovered flaws correlate with the number of audits or active users? Meaning that less popular projects might have many undiscovered issues while popular ones do not? This might be true, but I do not see a reliable way to take that into account.
 
 
 ## Qualitative Comparison
-Besides doing a "simple" quantitative comparison, this doesn't give a complete picture. If a project has ten minor security flaws, it looks much worse in the previous comparison than a project having four really bad ones. In order to give a more balanced overview, we should take a better look at the "quality" of issues.
+Besides doing a "simple" quantitative comparison, this does not give a complete picture. If a project has ten minor security flaws, it looks much worse in the previous comparison than a project having four really bad ones. In order to give a more balanced overview, we should take a better look at the "quality" of issues.
 
 ### Assumptions
-While a fair quantitative comparison is already hard, a balanced qualitative evaluation is probably impossible. Nevertheless, let's try it with the given set of assumptions on the rating of severity:
+While a fair quantitative comparison is already hard, a balanced qualitative evaluation is probably impossible. Nevertheless, let us try it with the given set of assumptions on the rating of severity:
 
-* As Common Vulnerability Scoring System (CVSS) values are not available for all security flaws, we can't use them -- this would have been the most balanced approach.
-* Instead I'll take a very simple approach: Count how many of the vulnerabilities are serious. We'll try to only include issues which should be fixed immediately and filter out stuff that can probably wait for the next maintenance window. I find this distinction useful as I want to know how often I have to put out fires. The following points will specify what's serious and what's not for each project.
-* In WordPress I'll rely on the announcement text. Due to the fuzziness of the bulletins, these numbers will be less authoritative than others.
-* Drupal has a good risk assessment and I'll count their [risk levels](https://drupal.org/security-team/risk-levels) of "Highly Critical" (5 of 5) and "Critical" (4 of 5) as serious. Unfortunately only the whole advisory is rated, so the individual issues must be evaluated.
-* For TYPO3 it's pretty similar, "Critical" (4 of 4) and "High" (3 of 4) of their [severity meaning](http://typo3.org/documentation/document-library/extension-manuals/doc_guide_security/1.0.0/view/1/3/#id2313132) are considered serious.
+* As Common Vulnerability Scoring System (CVSS) values are not available for all security flaws, we cannot use them -- this would have been the most balanced approach.
+* Instead I will take a very simple approach: Count how many of the vulnerabilities are serious. We will try to only include issues which should be fixed immediately and filter out stuff that can probably wait for the next maintenance window. I find this distinction useful as I want to know how often I have to put out fires. The following points will specify what is serious and what is not for each project.
+* In WordPress I will rely on the announcement text. Due to the fuzziness of the bulletins, these numbers will be less authoritative than others.
+* Drupal has a good risk assessment and I will count their [risk levels](https://drupal.org/security-team/risk-levels) of "Highly Critical" (5 of 5) and "Critical" (4 of 5) as serious. Unfortunately only the whole advisory is rated, so the individual issues must be evaluated.
+* For TYPO3 it is pretty similar, "Critical" (4 of 4) and "High" (3 of 4) of their [severity meaning](http://typo3.org/documentation/document-library/extension-manuals/doc_guide_security/1.0.0/view/1/3/#id2313132) are considered serious.
 * [Joomla's security team](http://developer.joomla.org/security.html) uses exactly the same severity as TYPO3.
-* SilverStripe doesn't have severity levels (yet), so the very detailed changes will be used here -- pretty much the same as with WordPress.
+* SilverStripe does not have severity levels (yet), so the very detailed changes will be used here -- pretty much the same as with WordPress.
 
 ### Vulnerabilities
 
@@ -368,7 +368,7 @@ Detailed list of serious vulnerabilities:
 
 1. [3.0.4](https://wordpress.org/news/2010/12/3-0-4-update/): 1
 2. [SA-CORE-2011-002](https://drupal.org/node/1204582): 1,
-   [SA-CORE-2011-001](https://drupal.org/node/1168756): 0 (I wouldn't consider any of these serious despite the bulletin's rating),
+   [SA-CORE-2011-001](https://drupal.org/node/1168756): 0 (I would not consider any of these serious despite the bulletin's rating),
    [SA-CORE-2010-002](https://drupal.org/node/880476): 1 ("OpenID authentication bypass"),
    [SA-CORE-2010-001](https://drupal.org/node/731710): 1 ("Open redirection")
 3. [TYPO3-CORE-SA-2011-004](http://typo3.org/teams/security/security-bulletins/typo3-core/typo3-core-sa-2011-004/): 1,
@@ -402,7 +402,7 @@ A graphical comparison looks like this:
 ## Conclusion
 What did we learn? I think all projects are doing a pretty good job overall. There are differences, but if you factor in LOC, features,… the projects are more similar than I would have expected.
 
-Will I take back my initial comment on TYPO3? Not really. While 2011 has been much better than 2010, I'm still not too impressed with their numbers -- sorry! Having said that, it's hard or nearly impossible to have a totally fair comparison.
+Will I take back my initial comment on TYPO3? Not really. While 2011 has been much better than 2010, I am still not too impressed with their numbers -- sorry! Having said that, it is hard or nearly impossible to have a totally fair comparison.
 
 
 &copy; 2012 [Philipp Krenn](https://twitter.com/xeraa): [Attribution-ShareAlike 3.0 Unported (CC BY-SA 3.0)](https://creativecommons.org/licenses/by-sa/3.0/)
