@@ -351,9 +351,10 @@ A graphical comparison looks like this:
 ### Interpretation
 
 * Joomla had the most vulnerabilities, but TYPO3 followed closely.
-* Drupal had the least vulnerabilities in the given period, but also had the highest number of vulnerabilities per LOC -- which I found rather surprising.
-* SilverStripe has had the least security issues per LOC, but nearly double the number compared to Drupal.
-* While TYPO3 and SilverStripe had significantly more security flaws in 2010 than in 2011, it is just the other way around for WordPress and Joomla. However, I would not be so bold as to suggest the code base of the former ones has matured and will be (more) secure in the future. Taking a look at only two sample years, does not give an indication of development.
+* MODX has the least vulnerabilities, both overall and per lines of code (if I have not overlooked any issues as MODX's security announcements are incomplete).
+* Drupal follows closely in regards of total vulnerabilities, but also had the highest number of vulnerabilities per LOC -- which I found rather surprising.
+* SilverStripe closely trails MODX in terms of security issues per LOC, but nearly doubles the overall number.
+* While TYPO3, MODX, and SilverStripe had significantly more security flaws in 2010 than in 2011, it is just the other way around for WordPress, Joomla, and ExpressionEngine. However, I would not be so bold as to suggest the code base of the former ones has matured and will be (more) secure in the future. Taking a look at only two sample years, does not give an indication of development.
 * While Joomla is still supporting 1.5, 1.6 has been replaced by 1.7 so they have only been supporting two versions at the same time (like most other projects). This is important as we do not want to punish projects for providing more support than others.
 * TYPO3 supports three versions (stable, old stable, and deprecated). However, if I am not mistaken, all security issues in the last two years have been part of the two latest releases (and sometimes older versions as well). Hence, the extended support policy has not been a disadvantage.
 * Could the number of discovered flaws correlate with the number of audits or active users? Meaning that less popular projects might have many undiscovered issues while popular ones do not? This might be true, but I do not see a reliable way to take that into account.
@@ -371,18 +372,18 @@ While a fair quantitative comparison is already hard, a balanced qualitative eva
 * Drupal has a good risk assessment and I will count their [risk levels](https://drupal.org/security-team/risk-levels) of "Highly Critical" (5 of 5) and "Critical" (4 of 5) as serious. Unfortunately only the whole advisory is rated, so the individual issues must be evaluated.
 * For TYPO3 it is pretty similar, "Critical" (4 of 4) and "High" (3 of 4) of their [severity meaning](http://typo3.org/documentation/document-library/extension-manuals/doc_guide_security/1.0.0/view/1/3/#id2313132) are considered serious.
 * [Joomla's security team](http://developer.joomla.org/security.html) uses exactly the same severity as TYPO3.
-*
-* As ExpressionEngines's change log is everything there is and its information is pretty limited, I will try to more or less guess. I am sorry if I err on the side of over reporting, but this is deserved, in my humble opinion.
+* MODX provides ratings for most issues and I will assume the ones without bulletins are not severe. The change log's text seems to support this assumption.
+* As ExpressionEngines's change log is everything there is and its information is pretty limited, I will try to more or less guess. I am sorry if I err on the side of over reporting, but this is deserved, in my opinion. Provide more details and people are less likely to assume the worst...
 * SilverStripe does not have severity levels for 2010 and 2011, so the very detailed changes will be used here -- pretty much the same as with WordPress.
 
 ### Vulnerabilities
 
-| Project           | Serious Vulnerabilities | Percentage of serious issues |
+| Project              | Serious Vulnerabilities | Percentage of serious issues |
 |----------------------|-------------------------|------------------------------|
-| WordPress (1)     |  1                      |  1 / 23 =  4%                |
-| Drupal (2)        |  3                      |  3 / 13 = 23%                |
-| TYPO3 (3)         | 18                      | 18 / 42 = 43%                |
-| Joomla (4)        |  3                      |  3 / 45 =  7%                |
+| WordPress (1)        |  1                      |  1 / 23 =  4%                |
+| Drupal (2)           |  3                      |  3 / 13 = 23%                |
+| TYPO3 (3)            | 18                      | 18 / 42 = 43%                |
+| Joomla (4)           |  3                      |  3 / 45 =  7%                |
 | MODX (5)             |  2                      |  2 / 12 = 17%                |
 | ExpressionEngine (6) |  2                      |  2 / 16 = 13%                |
 | SilverStripe (7)     |  4                      |  4 / 25 = 16%                |
@@ -396,7 +397,7 @@ Detailed list of serious vulnerabilities:
    [SA-CORE-2010-001](https://drupal.org/node/731710): 1 ("Open redirection")
 3. [TYPO3-CORE-SA-2011-004](http://typo3.org/teams/security/security-bulletins/typo3-core/typo3-core-sa-2011-004/): 1,
    [TYPO3-CORE-SA-2011-001](http://typo3.org/teams/security/security-bulletins/typo3-core/typo3-core-sa-2011-001/): 4,
-    [TYPO3-SA-2010-022](http://typo3.org/teams/security/security-bulletins/typo3-core/typo3-sa-2010-022/): 2,
+   [TYPO3-SA-2010-022](http://typo3.org/teams/security/security-bulletins/typo3-core/typo3-sa-2010-022/): 2,
    [TYPO3-SA-2010-020](http://typo3.org/teams/security/security-bulletins/typo3-core/typo3-sa-2010-020/): 1,
    [TYPO3-SA-2010-012](http://typo3.org/teams/security/security-bulletins/typo3-core/typo3-sa-2010-012/): 7,
    [TYPO3-SA-2010-008](http://typo3.org/teams/security/security-bulletins/typo3-core/typo3-sa-2010-008/): 1,
@@ -420,14 +421,16 @@ A graphical comparison looks like this:
 ### Interpretation
 
 * WordPress only had a single serious vulnerability (in case I interpreted that correctly) -- impressive.
-* Drupal did also well, only the percentage is a little higher due to the low number of overall issues.
-* In contrast to the first two, TYPO3 appeared to not do well at all. It has by far most serious vulnerabilities both in absolute numbers and the percentage. However, I would attribute part of the difference compared to the other projects to TYPO3's stricter rating of vulnerabilities. One should probably add a CVSS comparison to Drupal to get a more balanced result.
+* MODX and ExpressionEngine follow closely, each having only two serious issues. However, their percentage is higher due to the low number of overall issues.
+* Drupal and SilverStripe did also well, having a severe issue every six to eight months on overage.
 * Joomla, while having the most vulnerabilities overall, did very well with serious ones (meaning it had few of those).
-* SilverStripe seems to be floating somewhere between the other projects, neither being exceptionally good or bad.
+* In contrast to the first two, TYPO3 appeared to not do well at all. It has by far most serious vulnerabilities both in absolute numbers and the percentage. However, I would attribute part of the difference compared to the other projects to TYPO3's stricter rating of vulnerabilities. One should probably add a CVSS comparison with another project to get a more balanced result.
 
 
 ## Conclusion
-What did we learn? I think all projects are doing a pretty good job overall. There are differences, but if you factor in LOC, features,… the projects are more similar than I would have expected.
+What did we learn? I think all projects are doing a pretty decent job overall. There are differences, but if you factor in LOC, features,… the projects are more similar than I would have expected.
+
+While the security standards themselves seem to be solid, I would wish for better reporting and announcements. This is mainly true for MODX and ExpressionEngine, but to some extent also for WordPress.
 
 Will I take back my initial comment on TYPO3? Not really. While 2011 has been much better than 2010, I am still not too impressed with their numbers -- sorry! Having said that, it is hard or nearly impossible to have a totally fair comparison.
 
