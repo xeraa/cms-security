@@ -217,19 +217,20 @@ However, the devil is in the details and we are making the following assumptions
 |      | TYPO3 (3)             |  6         | 27              | 27 / 4.36 =  6.19       |
 |      | Joomla (4)            | 10         | 10              | 10 / 2.35 =  4.26       |
 |      | MODX (5)              |            |                 |                         |
-|      | ExpressionEngine (6)  |            |                 |                         |
+|      | ExpressionEngine (6)  |  -         |  4              |  4 / 1.99 =  2.01       |
 |      | SilverStripe (7)      |  7         | 20              | 20 / 4.87 =  4.11       |
 | 2011 | WordPress (8)         |  6         | 19              | 19 / 1.54 = 12.34       |
 |      | Drupal (9)            |  3         |  5              |  5 / 0.53 =  9.43       |
 |      | TYPO3 (10)            |  4         | 15              | 15 / 4.36 =  3.44       |
 |      | Joomla (11)           | 35         | 35              | 35 / 2.35 = 14.89       |
 |      | MODX (12)             |            |                 |                         |
-|      | ExpressionEngine (13) |            |                 |                         |
+|      | ExpressionEngine (13) |  -         | 12              | 12 / 1.99 =  6.03       |
 |      | SilverStripe (14)     |  1         |  5              |  5 / 4.87 =  1.03       |
 | Sum  | WordPress             |  9         | 23              | 23 / 1.54 = 14.94       |
 |      | Drupal                |  5         | 13              | 13 / 0.53 = 24.53       |
 |      | TYPO3                 | 10         | 42              | 42 / 4.36 =  9.63       |
 |      | Joomla                | 45         | 45              | 45 / 2.35 = 19.15       |
+|      | ExpressionEngine      |  -         | 16              | 16 / 1.99 =  8.04       |
 |      | SilverStripe          |  8         | 25              | 25 / 4.87 =  5.13       |
 
 Detailed list of advisories and vulnerabilities:
@@ -256,7 +257,10 @@ Detailed list of advisories and vulnerabilities:
    [20100423](http://developer.joomla.org/security/news/309-20100423-core-sessation-fixation.html),
    [20100423](http://developer.joomla.org/security/news/311-20100423-core-negative-values-for-limit-and-offset.html) (the last three are dates, that is why they are exactly the same)
 5.
-6.
+6. [2.1.2](http://expressionengine.com/user_guide/changelog.html#version-2-1-2): 1 ("file uploads would not be run through xss_clean in some cases"),
+   [2.1.1](http://expressionengine.com/user_guide/changelog.html#version-2-1-1): 1,
+   [2.1.0](http://expressionengine.com/user_guide/changelog.html#version-2-1-0): 1,
+   [1.7.0](http://expressionengine.com/legacy_docs/changelog.html#v170): 1 (this might be the same issue as in 2.1.1, but there is no way to tell for sure)
 7. [2.4.4](http://doc.silverstripe.org/sapphire/en/changelogs/2.4.4): 8,
    [2.4.3](http://doc.silverstripe.org/sapphire/en/changelogs/2.4.3): 2,
    [2.4.2](http://doc.silverstripe.org/sapphire/en/changelogs/2.4.2): 2,
@@ -312,7 +316,12 @@ Detailed list of advisories and vulnerabilities:
     [20110202](http://developer.joomla.org/security/news/329-20110202-core-path-disclosure.html),
     [20110201](http://developer.joomla.org/security/news/328-20110201-core-sql-injection-path-disclosure.html)
 12.
-13.
+13. [2.3.1](http://expressionengine.com/user_guide/changelog.html#version-2-3-1): 1,
+    [2.3.0](http://expressionengine.com/user_guide/changelog.html#version-2-3-0): 3,
+    [2.2.2](http://expressionengine.com/user_guide/changelog.html#version-2-2-2): 1 ("pending members" -- does not once mention security or anything similar),
+    [2.2.0](http://expressionengine.com/user_guide/changelog.html#version-2-2-0): 1 ("did not respect the IP and User Agent security setting"),
+    [2.1.4](http://expressionengine.com/user_guide/changelog.html#version-2-1-4): 3,
+    [1.7.1](http://expressionengine.com/legacy_docs/changelog.html#v171): 3 
 14. [2.4.6](http://doc.silverstripe.org/sapphire/en/trunk/changelogs/2.4.6): 5
 
 A graphical comparison looks like this:
@@ -352,17 +361,21 @@ While a fair quantitative comparison is already hard, a balanced qualitative eva
 * Drupal has a good risk assessment and I will count their [risk levels](https://drupal.org/security-team/risk-levels) of "Highly Critical" (5 of 5) and "Critical" (4 of 5) as serious. Unfortunately only the whole advisory is rated, so the individual issues must be evaluated.
 * For TYPO3 it is pretty similar, "Critical" (4 of 4) and "High" (3 of 4) of their [severity meaning](http://typo3.org/documentation/document-library/extension-manuals/doc_guide_security/1.0.0/view/1/3/#id2313132) are considered serious.
 * [Joomla's security team](http://developer.joomla.org/security.html) uses exactly the same severity as TYPO3.
-* SilverStripe does not have severity levels (yet), so the very detailed changes will be used here -- pretty much the same as with WordPress.
+*
+* As ExpressionEngines's change log is everything there is and its information is pretty limited, I will try to more or less guess. I am sorry if I err on the side of over reporting, but this is deserved, in my humble opinion.
+* SilverStripe does not have severity levels for 2010 and 2011, so the very detailed changes will be used here -- pretty much the same as with WordPress.
 
 ### Vulnerabilities
 
 | Project           | Serious Vulnerabilities | Percentage of serious issues |
-|-------------------|-------------------------|------------------------------|
+|----------------------|-------------------------|------------------------------|
 | WordPress (1)     |  1                      |  1 / 23 =  4%                |
 | Drupal (2)        |  3                      |  3 / 13 = 23%                |
 | TYPO3 (3)         | 18                      | 18 / 42 = 43%                |
 | Joomla (4)        |  3                      |  3 / 45 =  7%                |
-| SilverStripe (5)  |  4                      |  4 / 25 = 16%                |
+| MODX (5)             |                         |                              |
+| ExpressionEngine (6) |  2                      |  2 / 16 = 13%                |
+| SilverStripe (7)     |  4                      |  4 / 25 = 16%                |
 
 Detailed list of serious vulnerabilities:
 
@@ -382,7 +395,10 @@ Detailed list of serious vulnerabilities:
 4. [20111103](http://developer.joomla.org/security/news/375-20111103-core-password-change.html),
    [20111102](http://developer.joomla.org/security/news/374-20111102-core-password-change.html),
    [20100501](http://developer.joomla.org/security/news/314-20100501-core-xss-vulnerabilities-in-back-end.html)
-5. [2.4.6](http://doc.silverstripe.org/sapphire/en/trunk/changelogs/2.4.6): 2 ("Possible SQL injection for MySQL when using far east character encodings", "Potential remote code execution through serialization of page comment user submissions"),
+5. 
+6. [2.1.1](http://expressionengine.com/user_guide/changelog.html#version-2-1-1): 1 ("in certain circumstances could result in arbitrary code execution"),
+   [1.7.0](http://expressionengine.com/legacy_docs/changelog.html#v170): 1 (again, this might be the same issue as in 2.1.1)
+7. [2.4.6](http://doc.silverstripe.org/sapphire/en/trunk/changelogs/2.4.6): 2 ("Possible SQL injection for MySQL when using far east character encodings", "Potential remote code execution through serialization of page comment user submissions"),
    [2.4.4](http://doc.silverstripe.org/sapphire/en/changelogs/2.4.4): 1 ("SQL injection with Translatable extension enabled"),
    [2.3.7](http://doc.silverstripe.org/sapphire/en/changelogs/2.3.7): 1 ("Fixing Member_ProfileForm to validate for existing members via Member_Validator to avoid CMS users to switch to another existing user account by using their email address")
 
