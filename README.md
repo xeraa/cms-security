@@ -217,20 +217,21 @@ However, the devil is in the details and we are making the following assumptions
 |      | Drupal (2)            |  2         |  8              |  8 / 0.53 = 15.09       |
 |      | TYPO3 (3)             |  6         | 27              | 27 / 4.36 =  6.19       |
 |      | Joomla (4)            | 10         | 10              | 10 / 2.35 =  4.26       |
-|      | MODX (5)              |            |                 |                         |
+|      | MODX (5)              |  2         |  9              |  9 / 2.45 =  3.67       |
 |      | ExpressionEngine (6)  |  -         |  4              |  4 / 1.99 =  2.01       |
 |      | SilverStripe (7)      |  7         | 20              | 20 / 4.87 =  4.11       |
 | 2011 | WordPress (8)         |  6         | 19              | 19 / 1.54 = 12.34       |
 |      | Drupal (9)            |  3         |  5              |  5 / 0.53 =  9.43       |
 |      | TYPO3 (10)            |  4         | 15              | 15 / 4.36 =  3.44       |
 |      | Joomla (11)           | 35         | 35              | 35 / 2.35 = 14.89       |
-|      | MODX (12)             |            |                 |                         |
+|      | MODX (12)             |  1         |  3              |  3 / 2.45 =  1.22       |
 |      | ExpressionEngine (13) |  -         | 12              | 12 / 1.99 =  6.03       |
 |      | SilverStripe (14)     |  1         |  5              |  5 / 4.87 =  1.03       |
 | Sum  | WordPress             |  9         | 23              | 23 / 1.54 = 14.94       |
 |      | Drupal                |  5         | 13              | 13 / 0.53 = 24.53       |
 |      | TYPO3                 | 10         | 42              | 42 / 4.36 =  9.63       |
 |      | Joomla                | 45         | 45              | 45 / 2.35 = 19.15       |
+|      | MODX                  |  3         | 12              | 12 / 2.45 =  4.90       |
 |      | ExpressionEngine      |  -         | 16              | 16 / 1.99 =  8.04       |
 |      | SilverStripe          |  8         | 25              | 25 / 4.87 =  5.13       |
 
@@ -257,8 +258,15 @@ Detailed list of advisories and vulnerabilities:
    [20100423](http://developer.joomla.org/security/news/310-20100423-core-installer-migration-script.html),
    [20100423](http://developer.joomla.org/security/news/309-20100423-core-sessation-fixation.html),
    [20100423](http://developer.joomla.org/security/news/311-20100423-core-negative-values-for-limit-and-offset.html) (the last three are dates, that is why they are exactly the same)
-5.
-6. [2.1.2](http://expressionengine.com/user_guide/changelog.html#version-2-1-2): 1 ("file uploads would not be run through xss_clean in some cases"),
+5. MODX does not provide an advisory for every issue -- I did not link those "missing" issues, they are only available in the [change log](https://github.com/modxcms/revolution/blob/develop/core/docs/changelog.txt).  
+   2.0.5: "[#2918] Address XSS vuln in manager login that allows JS injection",
+   [2.0.3](http://forums.modx.com/thread/264/modx-revolution-2-0-3-addresses-pair-of-vulnerabilities#dis-post-1670): 2,
+   2.0.1: "[#MODX-2210] Added strip for xss in manager a variable",
+   2.0.0: "Hardened security on some file download actions in mgr such as console output, phpinfo, properties export",
+   [1.0.3](http://forums.modx.com/thread/261/security-updates-in-modx-evolution-1-0-3-you-really-should-upgrade#dis-post-1667): 3
+   [1.0.4](http://forums.modx.com/thread/262/modx-evolution-sql-injection-vulnerability#dis-post-410625): 1
+6. ExpressionEngine does not provide any advisories or at least I could not find them.  
+   [2.1.2](http://expressionengine.com/user_guide/changelog.html#version-2-1-2): 1 ("file uploads would not be run through xss_clean in some cases"),
    [2.1.1](http://expressionengine.com/user_guide/changelog.html#version-2-1-1): 1,
    [2.1.0](http://expressionengine.com/user_guide/changelog.html#version-2-1-0): 1,
    [1.7.0](http://expressionengine.com/legacy_docs/changelog.html#v170): 1 (this might be the same issue as in 2.1.1, but there is no way to tell for sure)
@@ -316,7 +324,7 @@ Detailed list of advisories and vulnerabilities:
     [20110203](http://developer.joomla.org/security/news/330-20110203-core-xss-vulnerabilities.html),
     [20110202](http://developer.joomla.org/security/news/329-20110202-core-path-disclosure.html),
     [20110201](http://developer.joomla.org/security/news/328-20110201-core-sql-injection-path-disclosure.html)
-12.
+12. 2.1.1: "Harden connector CSRF security by tying user session modauth to prevent hijacking of session if modauth is known", [1.0.5](http://forums.modx.com/thread/268/modx-evo-1-0-4-and-prior-sql-injection-and-directory-traversal-vulnerabities#dis-post-1674): 2
 13. [2.3.1](http://expressionengine.com/user_guide/changelog.html#version-2-3-1): 1,
     [2.3.0](http://expressionengine.com/user_guide/changelog.html#version-2-3-0): 3,
     [2.2.2](http://expressionengine.com/user_guide/changelog.html#version-2-2-2): 1 ("pending members" -- does not once mention security or anything similar),
@@ -335,8 +343,8 @@ A graphical comparison looks like this:
 * [Drupal](https://drupal.org/security) does this much better, I would even say best. The overview is both compact and contains all the relevant information (affected version, risk assessment, local / remote).
 * [TYPO3's list](http://typo3.org/teams/security/security-bulletins/typo3-core/) is not bad and the detail pages contain all relevant information. I just did not understand the numbering schema in 2010: 001 (1 issue) is being followed by 004 (3 issues); next is 008 with 1 issue again.
 * [Joomla](http://developer.joomla.org/security/news.html) has probably too much information on the overview page, but everything of interest is there, so I cannot really fault them for that.
-* MODX did a great job at hiding their security notices -- or at least I had that impression. After finding [http://forums.modx.com/board/8/security-notices](http://forums.modx.com/board/8/security-notices) it got me a little bit confused. Not only does it include non-core issues for popular modules, it includes [a PHP issue and MODX filter](http://forums.modx.com/thread/267/critical-php-bug-security-notice-and-patch#dis-post-1673) as well. While the overview is rather useless, the detailed descriptions are decent.
-* ExpressionEngine's security notices are so well hidden, I am not sure if I have found the correct page or not -- the full blown change log. Adding injury to insult, it is split into the [1.x](http://expressionengine.com/legacy_docs/changelog.html) and [2.x](http://expressionengine.com/user_guide/changelog.html) change log. Do not ask for severity ratings, there are none. This is definitely the least transparent and overall worst announcement page of all systems. Maybe that is intentional, as ExpressionEngine has been criticized for their "[Quiet release](http://www.lullabot.com/articles/drupal-and-expressionengine-security-models)" approach before.
+* MODX did a great job at hiding their security notices -- or at least I had that impression. After finding [http://forums.modx.com/board/8/security-notices](http://forums.modx.com/board/8/security-notices) it got me a little bit confused. Not only does it include non-core issues for popular modules, it includes [a PHP issue and MODX filter for it](http://forums.modx.com/thread/267/critical-php-bug-security-notice-and-patch#dis-post-1673) as well. While the overview is rather useless, the detailed descriptions are decent. However, they do not seem to release an advisory for every security issue! I did only realize that when I took a look through the [official change log](https://github.com/modxcms/revolution/blob/develop/core/docs/changelog.txt). I tried to find all security related changes, but I might have missed some -- especially if you search for the term "sanity" there are quite a lot of entries, which might somehow security related. As most of them will be harmless, I did not count them. Nevertheless, I think this kind of "tweaking" is really the wrong approach, but that is something everyone will have to decide for themselves.
+* ExpressionEngine's security notices are so well hidden, I am not sure if I have found the correct page or not -- the full blown change log. Adding injury to insult, it is split into the [1.x](http://expressionengine.com/legacy_docs/changelog.html) and [2.x](http://expressionengine.com/user_guide/changelog.html) change log. Do not ask for severity ratings, there are none. Together with MODX's announcements, these are the least transparent and overall worst announcement pages of all systems. Maybe that is intentional, as ExpressionEngine has been criticized for their "[Quiet release](http://www.lullabot.com/articles/drupal-and-expressionengine-security-models)" approach before.
 * The [overview page of SilverStripe](http://www.silverstripe.org/security-releases/) is very basic, but the linked detail pages contain a lot of information. ~~A severity rating on the overview page or at least in the details would be nice, though.~~  
   *Addendum: A severity rating has been added (actually, I got it started): [http://doc.silverstripe.org/sapphire/en/trunk/misc/release-process#severity-rating](http://doc.silverstripe.org/sapphire/en/trunk/misc/release-process#severity-rating)*
 
@@ -375,7 +383,7 @@ While a fair quantitative comparison is already hard, a balanced qualitative eva
 | Drupal (2)        |  3                      |  3 / 13 = 23%                |
 | TYPO3 (3)         | 18                      | 18 / 42 = 43%                |
 | Joomla (4)        |  3                      |  3 / 45 =  7%                |
-| MODX (5)             |                         |                              |
+| MODX (5)             |  2                      |  2 / 12 = 17%                |
 | ExpressionEngine (6) |  2                      |  2 / 16 = 13%                |
 | SilverStripe (7)     |  4                      |  4 / 25 = 16%                |
 
@@ -397,7 +405,8 @@ Detailed list of serious vulnerabilities:
 4. [20111103](http://developer.joomla.org/security/news/375-20111103-core-password-change.html),
    [20111102](http://developer.joomla.org/security/news/374-20111102-core-password-change.html),
    [20100501](http://developer.joomla.org/security/news/314-20100501-core-xss-vulnerabilities-in-back-end.html)
-5. 
+5. [1.0.5](http://forums.modx.com/thread/268/modx-evo-1-0-4-and-prior-sql-injection-and-directory-traversal-vulnerabities#dis-post-1674): 1,
+   [1.0.3](http://forums.modx.com/thread/261/security-updates-in-modx-evolution-1-0-3-you-really-should-upgrade#dis-post-1667): 1 ("SQL Injection via WebLogin")
 6. [2.1.1](http://expressionengine.com/user_guide/changelog.html#version-2-1-1): 1 ("in certain circumstances could result in arbitrary code execution"),
    [1.7.0](http://expressionengine.com/legacy_docs/changelog.html#v170): 1 (again, this might be the same issue as in 2.1.1)
 7. [2.4.6](http://doc.silverstripe.org/sapphire/en/trunk/changelogs/2.4.6): 2 ("Possible SQL injection for MySQL when using far east character encodings", "Potential remote code execution through serialization of page comment user submissions"),
