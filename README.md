@@ -326,6 +326,7 @@ A graphical comparison looks like this:
 * [TYPO3's list](http://typo3.org/teams/security/security-bulletins/typo3-core/) isn't bad and the detail pages contain all relevant information. I just didn't understand the numbering schema in 2010: 001 (1 issue) is being followed by 004 (3 issues); next is 008 with 1 issue again.
 * [Joomla](http://developer.joomla.org/security/news.html) has probably too much information on the overview page, but everything of interest is there, so I can't really fault them for that.
 * The [overview page of SilverStripe](http://www.silverstripe.org/security-releases/) is very basic, but the linked detail pages contain a lot of information. A severity rating on the overview page or at least in the details would be nice, though.
+* The [overview page of SilverStripe](http://www.silverstripe.org/security-releases/) is very basic, but the linked detail pages contain a lot of information. ~~A severity rating on the overview page or at least in the details would be nice, though.~ *Addendum: A severity rating has been added (actually, I got it started): [http://doc.silverstripe.org/sapphire/en/trunk/misc/release-process#severity-rating](http://doc.silverstripe.org/sapphire/en/trunk/misc/release-process#severity-rating)*
 
 ### Interpretation
 
